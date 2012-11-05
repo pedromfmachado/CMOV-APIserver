@@ -1,4 +1,6 @@
 class LinesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /lines
   # GET /lines.json
   def index

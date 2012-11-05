@@ -1,4 +1,6 @@
 class StationsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /stations
   # GET /stations.json
   def index

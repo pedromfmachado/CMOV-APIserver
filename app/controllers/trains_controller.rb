@@ -1,4 +1,6 @@
 class TrainsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /trains
   # GET /trains.json
   def index

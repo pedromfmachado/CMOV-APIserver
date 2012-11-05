@@ -1,4 +1,6 @@
 class TripTypesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /trip_types
   # GET /trip_types.json
   def index

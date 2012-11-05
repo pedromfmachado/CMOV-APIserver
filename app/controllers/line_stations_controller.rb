@@ -1,4 +1,6 @@
 class LineStationsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /line_stations
   # GET /line_stations.json
   def index
