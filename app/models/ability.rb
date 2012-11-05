@@ -7,15 +7,21 @@ class Ability
     if user.role == "admin"
 
         can :manage, :all
+        cannot :manage, User, :id => user.id
+        cannot :manage, User, :role => user.role
 
     elsif user.role == "inspector"
 
         can :read, :all
-        can :manage, "reservations"
+        cannot :read, User
+
+        can :manage, Reservation
+
 
     elsif user.role == "customer"
 
         can :read, :all
+        cannot :read, User
 
     end
 

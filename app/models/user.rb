@@ -14,14 +14,29 @@ class User < ActiveRecord::Base
   attr_accessible :name, :address, :role, :email, :password, :password_confirmation, :remember_me, :cctype, :ccnumber, :ccvalidity
   # attr_accessible :title, :body
 
+  # invoked upon user registration
   def setRoleAsCustomer
-
     if self.role == "guest"
       
       self.update_attributes(:role => "customer")
 
     end
+  end
 
-  end  
+  def promote
+    if self.role == "customer"
+      self.update_attributes(:role => "inspector")
+    elsif self.role == "inspector"
+      self.update_attributes(:role => "admin")
+    end
+  end
+
+  def demote
+    if self.role == "admin"
+      self.update_attributes(:role => "inspector")
+    elsif self.role == "inspector"
+      self.update_attributes(:role => "customer")
+    end
+  end 
   
 end

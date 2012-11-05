@@ -1,21 +1,19 @@
 CMOVApiserver::Application.routes.draw do
+
   get "welcome/index"
-
-  resources :trips
-
-  resources :reservations
-
-  resources :line_stations
-
-  resources :trains
-
-  resources :trip_types
-
-  resources :stations
-
-  resources :lines
-
+  
   devise_for :users
+  resources :trips
+  resources :reservations
+  resources :line_stations
+  resources :trains
+  resources :trip_types
+  resources :stations
+  resources :lines
+  resources :users
+
+  match "demote/:id" => "users#demote"
+  match "promote/:id" => "users#promote"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
