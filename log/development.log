@@ -1247,3 +1247,989 @@ ActionController::RoutingError (No route matches [GET] "/User"):
   Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.9ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/Users" for 127.0.0.1 at 2012-11-05 13:27:54 +0000
+
+ActionController::RoutingError (No route matches [GET] "/Users"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.8ms)
+
+
+Started GET "/Users" for 127.0.0.1 at 2012-11-05 13:27:56 +0000
+
+ActionController::RoutingError (No route matches [GET] "/Users"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/new_user_registration" for 127.0.0.1 at 2012-11-05 13:28:47 +0000
+
+ActionController::RoutingError (No route matches [GET] "/new_user_registration"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/everyone/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/devise-2.1.2/app/views/devise/shared/_links.erb (3.0ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/devise-2.1.2/app/views/devise/registrations/new.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 297ms (Views: 174.6ms | ActiveRecord: 25.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /application.css - 200 OK (88ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /lines.css - 200 OK (2ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /line_stations.css - 200 OK (1ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /reservations.css - 200 OK (1ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /stations.css - 200 OK (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /trains.css - 200 OK (1ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /trip_types.css - 200 OK (12ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /trips.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:03 +0000
+Served asset /jquery_ujs.js - 200 OK (11ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /line_stations.js - 200 OK (1ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /lines.js - 200 OK (1ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /reservations.js - 200 OK (5ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /stations.js - 200 OK (1ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /trains.js - 200 OK (1ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /trip_types.js - 200 OK (1ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /trips.js - 200 OK (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:29:04 +0000
+Served asset /application.js - 200 OK (25ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2012-11-05 13:31:24 +0000
+Processing by ReservationsController#index as HTML
+  [1m[36mReservation Load (0.1ms)[0m  [1mSELECT "reservations".* FROM "reservations" [0m
+  Rendered reservations/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 90ms (Views: 85.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2012-11-05 13:31:26 +0000
+Processing by ReservationsController#new as HTML
+  Rendered reservations/_form.html.erb (43.3ms)
+  Rendered reservations/new.html.erb within layouts/application (45.0ms)
+Completed 500 Internal Server Error in 63ms
+
+ActionView::Template::Error (undefined method `User' for #<Reservation:0xb81b20c>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :User %><br />
+    20:     <%= f.text_field :User %>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :Trip %><br />
+  app/views/reservations/_form.html.erb:20:in `block in _app_views_reservations__form_html_erb___490793516_95322230'
+  app/views/reservations/_form.html.erb:1:in `_app_views_reservations__form_html_erb___490793516_95322230'
+  app/views/reservations/new.html.erb:3:in `_app_views_reservations_new_html_erb___901658680_95556670'
+  app/controllers/reservations_controller.rb:29:in `new'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.3ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2012-11-05 13:32:06 +0000
+Processing by ReservationsController#new as HTML
+  Rendered reservations/_form.html.erb (77.0ms)
+  Rendered reservations/new.html.erb within layouts/application (77.8ms)
+Completed 500 Internal Server Error in 81ms
+
+ActionView::Template::Error (undefined method `arrivalStation' for #<Reservation:0xb40d5fc>):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :ArrivalStation %><br />
+    28:     <%= f.text_field :arrivalStation %>
+    29:   </div>
+    30:   <div class="field">
+    31:     <%= f.label :DepartureStation %><br />
+  app/views/reservations/_form.html.erb:28:in `block in _app_views_reservations__form_html_erb___490793516_92853160'
+  app/views/reservations/_form.html.erb:1:in `_app_views_reservations__form_html_erb___490793516_92853160'
+  app/views/reservations/new.html.erb:3:in `_app_views_reservations_new_html_erb___901658680_95556670'
+  app/controllers/reservations_controller.rb:29:in `new'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.3ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2012-11-05 13:32:17 +0000
+Processing by ReservationsController#new as HTML
+  Rendered reservations/_form.html.erb (6.0ms)
+  Rendered reservations/new.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `arrival_station' for #<Reservation:0xa3fd48c>):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :ArrivalStation %><br />
+    28:     <%= f.text_field :arrival_station %>
+    29:   </div>
+    30:   <div class="field">
+    31:     <%= f.label :DepartureStation %><br />
+  app/views/reservations/_form.html.erb:28:in `block in _app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/_form.html.erb:1:in `_app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/new.html.erb:3:in `_app_views_reservations_new_html_erb___901658680_95556670'
+  app/controllers/reservations_controller.rb:29:in `new'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.7ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2012-11-05 13:32:18 +0000
+Processing by ReservationsController#new as HTML
+  Rendered reservations/_form.html.erb (4.5ms)
+  Rendered reservations/new.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `arrival_station' for #<Reservation:0xa9acb08>):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :ArrivalStation %><br />
+    28:     <%= f.text_field :arrival_station %>
+    29:   </div>
+    30:   <div class="field">
+    31:     <%= f.label :DepartureStation %><br />
+  app/views/reservations/_form.html.erb:28:in `block in _app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/_form.html.erb:1:in `_app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/new.html.erb:3:in `_app_views_reservations_new_html_erb___901658680_95556670'
+  app/controllers/reservations_controller.rb:29:in `new'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.8ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2012-11-05 13:32:18 +0000
+Processing by ReservationsController#new as HTML
+  Rendered reservations/_form.html.erb (5.1ms)
+  Rendered reservations/new.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `arrival_station' for #<Reservation:0xb55cfe8>):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :ArrivalStation %><br />
+    28:     <%= f.text_field :arrival_station %>
+    29:   </div>
+    30:   <div class="field">
+    31:     <%= f.label :DepartureStation %><br />
+  app/views/reservations/_form.html.erb:28:in `block in _app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/_form.html.erb:1:in `_app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/new.html.erb:3:in `_app_views_reservations_new_html_erb___901658680_95556670'
+  app/controllers/reservations_controller.rb:29:in `new'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.4ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2012-11-05 13:32:18 +0000
+Processing by ReservationsController#new as HTML
+  Rendered reservations/_form.html.erb (7.8ms)
+  Rendered reservations/new.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `arrival_station' for #<Reservation:0xac66ec0>):
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :ArrivalStation %><br />
+    28:     <%= f.text_field :arrival_station %>
+    29:   </div>
+    30:   <div class="field">
+    31:     <%= f.label :DepartureStation %><br />
+  app/views/reservations/_form.html.erb:28:in `block in _app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/_form.html.erb:1:in `_app_views_reservations__form_html_erb___490793516_95819830'
+  app/views/reservations/new.html.erb:3:in `_app_views_reservations_new_html_erb___901658680_95556670'
+  app/controllers/reservations_controller.rb:29:in `new'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.0ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Processing by ReservationsController#new as HTML
+  Rendered reservations/_form.html.erb (9.0ms)
+  Rendered reservations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:32:33 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/reservations/linestation" for 127.0.0.1 at 2012-11-05 13:32:49 +0000
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"linestation"}
+  [1m[35mReservation Load (0.4ms)[0m  SELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", "linestation"]]
+Completed 500 Internal Server Error in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Reservation with id=linestation):
+  app/controllers/reservations_controller.rb:16:in `show'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.8ms)
+
+
+Started GET "/reservations/linestations" for 127.0.0.1 at 2012-11-05 13:32:51 +0000
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"linestations"}
+  [1m[36mReservation Load (0.1ms)[0m  [1mSELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1[0m  [["id", "linestations"]]
+Completed 500 Internal Server Error in 7ms
+
+ActiveRecord::RecordNotFound (Couldn't find Reservation with id=linestations):
+  app/controllers/reservations_controller.rb:16:in `show'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/reservations/line:stations" for 127.0.0.1 at 2012-11-05 13:32:54 +0000
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"line:stations"}
+  [1m[35mReservation Load (0.1ms)[0m  SELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT 1  [["id", "line:stations"]]
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Reservation with id=line:stations):
+  app/controllers/reservations_controller.rb:16:in `show'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started GET "/line_stations" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Processing by LineStationsController#index as HTML
+  [1m[36mLineStation Load (0.2ms)[0m  [1mSELECT "line_stations".* FROM "line_stations" [0m
+  Rendered line_stations/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 79ms (Views: 73.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:00 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/line_stations/new" for 127.0.0.1 at 2012-11-05 13:33:02 +0000
+Processing by LineStationsController#new as HTML
+  Rendered line_stations/_form.html.erb (43.3ms)
+  Rendered line_stations/new.html.erb within layouts/application (44.6ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined method `Line' for #<LineStation:0xb769750>):
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :Line %><br />
+    24:     <%= f.text_field :Line %>
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :Station %><br />
+  app/views/line_stations/_form.html.erb:24:in `block in _app_views_line_stations__form_html_erb___602143032_97180730'
+  app/views/line_stations/_form.html.erb:1:in `_app_views_line_stations__form_html_erb___602143032_97180730'
+  app/views/line_stations/new.html.erb:3:in `_app_views_line_stations_new_html_erb___294501548_97187170'
+  app/controllers/line_stations_controller.rb:29:in `new'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.7ms)
+
+
+Started GET "/line_stations/new" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Processing by LineStationsController#new as HTML
+  Rendered line_stations/_form.html.erb (5.4ms)
+  Rendered line_stations/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:25 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/line_stations/lines" for 127.0.0.1 at 2012-11-05 13:33:32 +0000
+Processing by LineStationsController#show as HTML
+  Parameters: {"id"=>"lines"}
+  [1m[35mLineStation Load (0.2ms)[0m  SELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."id" = ? LIMIT 1  [["id", "lines"]]
+Completed 500 Internal Server Error in 9ms
+
+ActiveRecord::RecordNotFound (Couldn't find LineStation with id=lines):
+  app/controllers/line_stations_controller.rb:16:in `show'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.1ms)
+
+
+Started GET "/lines" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Processing by LinesController#index as HTML
+  [1m[36mLine Load (0.1ms)[0m  [1mSELECT "lines".* FROM "lines" [0m
+  Rendered lines/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /lines.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:51 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lines/new" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Processing by LinesController#new as HTML
+  Rendered lines/_form.html.erb (6.2ms)
+  Rendered lines/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 28ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /application.css - 304 Not Modified (51ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:33:54 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/stations" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Processing by StationsController#index as HTML
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" 
+  Rendered stations/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 35ms (Views: 31.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:00 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/stations/new" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Processing by StationsController#new as HTML
+  Rendered stations/_form.html.erb (4.9ms)
+  Rendered stations/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 28ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 13:34:01 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
