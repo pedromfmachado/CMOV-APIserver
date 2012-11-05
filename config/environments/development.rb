@@ -16,6 +16,9 @@ CMOVApiserver::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
+  # Mailer default url set
+  config.action_mailer.default_url_options = { :host => 'localhost:80' }
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -34,4 +37,5 @@ CMOVApiserver::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
 end

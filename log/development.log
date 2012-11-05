@@ -9692,3 +9692,1686 @@ Served asset /trips.js - 304 Not Modified (0ms)
 
 Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:04:13 +0000
 Served asset /welcome.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered welcome/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 75ms (Views: 72.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /reservations.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:53 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:54 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-11-05 20:17:55 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"J+G1d4ADOfTXh9A0md5QVhn9Q9gJs6phvAjuvqo7BNs="}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost/
+Completed 302 Found in 15ms (ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-11-05 20:17:55 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"J+G1d4ADOfTXh9A0md5QVhn9Q9gJs6phvAjuvqo7BNs="}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost/
+Completed 302 Found in 36ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-05 20:17:55 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 112ms (Views: 111.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:55 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /lines.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /trip_types.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /line_stations.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:56 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2012-11-05 20:17:58 +0000
+Processing by TrainsController#index as HTML
+Redirected to http://localhost/
+Completed 302 Found in 140ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-05 20:17:58 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 69ms (Views: 68.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /line_stations.css - 304 Not Modified (26ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /reservations.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:17:59 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:00 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:00 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:00 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:00 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 70ms (Views: 68.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /trip_types.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:01 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /welcome.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /stations.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:02 +0000
+Served asset /welcome.js - 304 Not Modified (9ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-11-05 20:18:03 +0000
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 64ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /scaffolds.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /welcome.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /line_stations.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:04 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:05 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:05 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:05 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:18:05 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 20:18:13 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."reset_password_token" = 'vUtfibgiZbyogK8N5ucx' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  UPDATE "users" SET "reset_password_token" = 'vUtfibgiZbyogK8N5ucx', "reset_password_sent_at" = '2012-11-05 20:18:13.502836', "updated_at" = '2012-11-05 20:18:13.503923' WHERE "users"."id" = 1
+  [1m[36m (32.0ms)[0m  [1mcommit transaction[0m
+  Rendered devise/mailer/reset_password_instructions.html.erb (4.1ms)
+Completed 500 Internal Server Error in 2103ms
+
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    2: 
+    3: <p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+    4: 
+    5: <p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
+    6: 
+    7: <p>If you didn't request this, please ignore this email.</p>
+    8: <p>Your password won't change until you access the link above and create a new one.</p>
+  app/views/devise/mailer/reset_password_instructions.html.erb:5:in `_app_views_devise_mailer_reset_password_instructions_html_erb___734780509_74067060'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.2ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.5ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 20:20:42 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1
+  Rendered devise/mailer/reset_password_instructions.html.erb (8.6ms)
+Completed 500 Internal Server Error in 155ms
+
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    2: 
+    3: <p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+    4: 
+    5: <p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
+    6: 
+    7: <p>If you didn't request this, please ignore this email.</p>
+    8: <p>Your password won't change until you access the link above and create a new one.</p>
+  app/views/devise/mailer/reset_password_instructions.html.erb:5:in `_app_views_devise_mailer_reset_password_instructions_html_erb___734780509_74067060'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.7ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (115.6ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 20:20:45 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1[0m
+  Rendered devise/mailer/reset_password_instructions.html.erb (3.6ms)
+Completed 500 Internal Server Error in 81ms
+
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    2: 
+    3: <p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+    4: 
+    5: <p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
+    6: 
+    7: <p>If you didn't request this, please ignore this email.</p>
+    8: <p>Your password won't change until you access the link above and create a new one.</p>
+  app/views/devise/mailer/reset_password_instructions.html.erb:5:in `_app_views_devise_mailer_reset_password_instructions_html_erb___734780509_74067060'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.7ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.2ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 20:21:48 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (6.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1
+  Rendered devise/mailer/reset_password_instructions.html.erb (2.8ms)
+Completed 500 Internal Server Error in 170ms
+
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    2: 
+    3: <p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+    4: 
+    5: <p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
+    6: 
+    7: <p>If you didn't request this, please ignore this email.</p>
+    8: <p>Your password won't change until you access the link above and create a new one.</p>
+  app/views/devise/mailer/reset_password_instructions.html.erb:5:in `_app_views_devise_mailer_reset_password_instructions_html_erb___734780509_74067060'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (11.2ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.8ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (130.7ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 20:21:52 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1[0m
+  Rendered devise/mailer/reset_password_instructions.html.erb (3.1ms)
+Completed 500 Internal Server Error in 80ms
+
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    2: 
+    3: <p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+    4: 
+    5: <p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
+    6: 
+    7: <p>If you didn't request this, please ignore this email.</p>
+    8: <p>Your password won't change until you access the link above and create a new one.</p>
+  app/views/devise/mailer/reset_password_instructions.html.erb:5:in `_app_views_devise_mailer_reset_password_instructions_html_erb___734780509_74067060'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-05 20:24:31 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 476ms (Views: 473.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /lines.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /reservations.css - 304 Not Modified (43ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /scaffolds.css - 304 Not Modified (42ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /line_stations.css - 304 Not Modified (43ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /stations.css - 304 Not Modified (54ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /trains.css - 304 Not Modified (25ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /trip_types.css - 304 Not Modified (20ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /trips.css - 304 Not Modified (29ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /welcome.css - 304 Not Modified (44ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /jquery.js - 304 Not Modified (26ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /line_stations.js - 304 Not Modified (27ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:32 +0000
+Served asset /lines.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:33 +0000
+Served asset /reservations.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:33 +0000
+Served asset /stations.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:33 +0000
+Served asset /trains.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:33 +0000
+Served asset /trip_types.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:33 +0000
+Served asset /trips.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:33 +0000
+Served asset /welcome.js - 304 Not Modified (21ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-05 20:24:34 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (115.5ms)
+Completed 200 OK in 637ms (Views: 151.8ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /reservations.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /stations.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /line_stations.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /reservations.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:35 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:36 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:36 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:36 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:36 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.erb (2.3ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 112ms (Views: 109.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /scaffolds.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /lines.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /trains.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /trip_types.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /welcome.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:40 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:41 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 20:24:45 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1[0m
+  Rendered devise/mailer/reset_password_instructions.html.erb (2.3ms)
+
+Sent mail to pedromfmachado@gmail.com (295ms)
+Date: Mon, 05 Nov 2012 20:24:47 +0000
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: pedromfmachado@gmail.com
+Message-ID: <5098208f3bf40_e3550b93481254d@debian.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello pedromfmachado@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:80/users/password/edit?reset_password_token=vUtfibgiZbyogK8N5ucx">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost/users/sign_in
+Completed 302 Found in 2153ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-05 20:24:47 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 208ms (Views: 206.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /welcome.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /trips.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:24:48 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-11-05 20:53:47 +0000
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 54ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:47 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:47 +0000
+Served asset /reservations.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:47 +0000
+Served asset /line_stations.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:47 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /stations.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /trains.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:48 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 20:53:52 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1
+  Rendered devise/mailer/reset_password_instructions.html.erb (1.2ms)
+
+Sent mail to pedromfmachado@gmail.com (257ms)
+Date: Mon, 05 Nov 2012 20:53:52 +0000
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: pedromfmachado@gmail.com
+Message-ID: <5098276097bc8_e355300caa12694@debian.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello pedromfmachado@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:80/users/password/edit?reset_password_token=vUtfibgiZbyogK8N5ucx">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost/users/sign_in
+Completed 302 Found in 370ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 143ms (Views: 125.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /welcome.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:53 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 20:53:54 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-11-05 21:08:37 +0000
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.erb (2.4ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 92ms (Views: 81.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /lines.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:38 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:39 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:39 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:39 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:39 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:39 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:39 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 21:08:43 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1[0m
+  Rendered devise/mailer/reset_password_instructions.html.erb (3.0ms)
+
+Sent mail to pedromfmachado@gmail.com (316ms)
+Date: Mon, 05 Nov 2012 21:08:43 +0000
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: pedromfmachado@gmail.com
+Message-ID: <50982adb45eab_e355175f66127b@debian.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello pedromfmachado@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:80/users/password/edit?reset_password_token=vUtfibgiZbyogK8N5ucx">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost/users/sign_in
+Completed 302 Found in 418ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-05 21:08:43 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (5.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 94ms (Views: 91.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:43 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 21:08:44 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-05 21:20:17 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (13.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 375ms (Views: 365.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:17 +0000
+Served asset /lines.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:17 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:17 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /stations.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /reservations.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:18 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:19 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:19 +0000
+Served asset /welcome.js - 304 Not Modified (6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-11-05 21:20:20 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.erb (2.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 105ms (Views: 97.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:20 +0000
+Served asset /line_stations.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:20 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /trains.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /stations.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /stations.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /trip_types.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:21 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:22 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-11-05 21:20:27 +0000
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 73ms (Views: 66.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:27 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /reservations.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:28 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:29 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:29 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:29 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:29 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:29 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:29 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-11-05 21:20:33 +0000
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZSjJxqBsg0zu40dQk15ia3UcKnEoQ7LxxhhcGKcHF8=", "user"=>{"email"=>"pedromfmachado@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1
+  Rendered devise/mailer/reset_password_instructions.html.erb (2.1ms)
+
+Sent mail to pedromfmachado@gmail.com (239ms)
+Date: Mon, 05 Nov 2012 21:20:34 +0000
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: pedromfmachado@gmail.com
+Message-ID: <50982da1f41ae_e3552d2f081282c@debian.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello pedromfmachado@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:80/users/password/edit?reset_password_token=vUtfibgiZbyogK8N5ucx">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost/users/sign_in
+Completed 302 Found in 374ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-05 21:20:34 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (110.1ms)
+Completed 200 OK in 334ms (Views: 327.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:34 +0000
+Served asset /line_stations.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /scaffolds.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /reservations.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:35 +0000
+Served asset /stations.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:36 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:36 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:36 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-05 21:20:36 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
