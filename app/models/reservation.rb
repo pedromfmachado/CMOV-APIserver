@@ -1,7 +1,6 @@
 class Reservation < ActiveRecord::Base
-  belongs_to :User
-  belongs_to :Trip
-  belongs_to :ArrivalStation
-  belongs_to :DepartureStation
+  belongs_to :user
+  belongs_to :trip
+  belongs_to :station
   attr_accessible :uuid
 end

@@ -1,8 +1,10 @@
 class Trip < ActiveRecord::Base
-  belongs_to :TripType
-  belongs_to :Train
-  belongs_to :Line
-  belongs_to :ArrivalStation
-  belongs_to :DepartureStation
+
+  has_one :train
+  has_one :trip_type
+  has_one :line
+  belongs_to :station
+  has_many :reservations
   attr_accessible :beginTime
+
 end
