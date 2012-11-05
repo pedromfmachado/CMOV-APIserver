@@ -14,7 +14,7 @@ group :production do
 end
 
 gem 'devise'
-
+gem "cancan"
 gem 'execjs'
 gem 'therubyracer'
 
