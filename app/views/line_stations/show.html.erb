@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Order:</b>
+  <%= @line_station.order %>
+</p>
+
+<p>
+  <b>Distance:</b>
+  <%= @line_station.distance %>
+</p>
+
+<p>
+  <b>Line:</b>
+  <%= @line_station.Line %>
+</p>
+
+<p>
+  <b>Station:</b>
+  <%= @line_station.Station %>
+</p>
+
+
+<%= link_to 'Edit', edit_line_station_path(@line_station) %> |
+<%= link_to 'Back', line_stations_path %>

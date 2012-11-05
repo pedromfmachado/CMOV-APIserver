@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  beginTime: 2012-11-05 11:04:04
+  TripType: 
+  Train: 
+  Line: 
+  ArrivalStation: 
+  DepartureStation: 
+
+two:
+  beginTime: 2012-11-05 11:04:04
+  TripType: 
+  Train: 
+  Line: 
+  ArrivalStation: 
+  DepartureStation: 

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Begintime:</b>
+  <%= @trip.beginTime %>
+</p>
+
+<p>
+  <b>Triptype:</b>
+  <%= @trip.TripType %>
+</p>
+
+<p>
+  <b>Train:</b>
+  <%= @trip.Train %>
+</p>
+
+<p>
+  <b>Line:</b>
+  <%= @trip.Line %>
+</p>
+
+<p>
+  <b>Arrivalstation:</b>
+  <%= @trip.ArrivalStation %>
+</p>
+
+<p>
+  <b>Departurestation:</b>
+  <%= @trip.DepartureStation %>
+</p>
+
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>

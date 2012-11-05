@@ -1,0 +1,33 @@
+<%= form_for(@line_station) do |f| %>
+  <% if @line_station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@line_station.errors.count, "error") %> prohibited this line_station from being saved:</h2>
+
+      <ul>
+      <% @line_station.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :order %><br />
+    <%= f.number_field :order %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br />
+    <%= f.number_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :Line %><br />
+    <%= f.text_field :Line %>
+  </div>
+  <div class="field">
+    <%= f.label :Station %><br />
+    <%= f.text_field :Station %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

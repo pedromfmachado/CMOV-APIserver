@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Maxcapacity:</b>
+  <%= @train.maxCapacity %>
+</p>
+
+<p>
+  <b>Velocity:</b>
+  <%= @train.velocity %>
+</p>
+
+
+<%= link_to 'Edit', edit_train_path(@train) %> |
+<%= link_to 'Back', trains_path %>

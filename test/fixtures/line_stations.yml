@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: 1
+  distance: 1
+  Line: 
+  Station: 
+
+two:
+  order: 1
+  distance: 1
+  Line: 
+  Station: 

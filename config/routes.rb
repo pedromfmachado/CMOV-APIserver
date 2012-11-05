@@ -1,4 +1,18 @@
 CMOVApiserver::Application.routes.draw do
+  resources :trips
+
+  resources :reservations
+
+  resources :line_stations
+
+  resources :trains
+
+  resources :trip_types
+
+  resources :stations
+
+  resources :lines
+
   devise_for :users
 
   # The priority is based upon order of creation:

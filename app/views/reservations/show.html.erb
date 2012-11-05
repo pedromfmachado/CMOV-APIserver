@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Uuid:</b>
+  <%= @reservation.uuid %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @reservation.User %>
+</p>
+
+<p>
+  <b>Trip:</b>
+  <%= @reservation.Trip %>
+</p>
+
+<p>
+  <b>Arrivalstation:</b>
+  <%= @reservation.ArrivalStation %>
+</p>
+
+<p>
+  <b>Departurestation:</b>
+  <%= @reservation.DepartureStation %>
+</p>
+
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
