@@ -5338,3 +5338,183 @@ ActionController::RoutingError (No route matches [GET] "/users"):
 
   Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.0ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (27.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (14.2ms)[0m  CREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "Line_id" integer, "Station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("line_stations")[0m
+  [1m[35m (7.7ms)[0m  CREATE INDEX "index_line_stations_on_Line_id" ON "line_stations" ("Line_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("line_stations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_line_stations_on_Line_id')
+  [1m[36m (23.2ms)[0m  [1mCREATE INDEX "index_line_stations_on_Station_id" ON "line_stations" ("Station_id")[0m
+  [1m[35m (9.4ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "User_id" integer, "Trip_id" integer, "ArrivalStation_id" integer, "DepartureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (7.6ms)[0m  [1mCREATE INDEX "index_reservations_on_ArrivalStation_id" ON "reservations" ("ArrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_ArrivalStation_id')[0m
+  [1m[35m (8.2ms)[0m  CREATE INDEX "index_reservations_on_DepartureStation_id" ON "reservations" ("DepartureStation_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_DepartureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_ArrivalStation_id')[0m
+  [1m[35m (11.7ms)[0m  CREATE INDEX "index_reservations_on_Trip_id" ON "reservations" ("Trip_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_Trip_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_DepartureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_ArrivalStation_id')
+  [1m[36m (8.1ms)[0m  [1mCREATE INDEX "index_reservations_on_User_id" ON "reservations" ("User_id")[0m
+  [1m[35m (12.2ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (9.8ms)[0m  [1mCREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (12.6ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "TripType_id" integer, "Train_id" integer, "Line_id" integer, "ArrivalStation_id" integer, "DepartureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (21.3ms)[0m  [1mCREATE INDEX "index_trips_on_ArrivalStation_id" ON "trips" ("ArrivalStation_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_ArrivalStation_id')[0m
+  [1m[35m (24.7ms)[0m  CREATE INDEX "index_trips_on_DepartureStation_id" ON "trips" ("DepartureStation_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_DepartureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_ArrivalStation_id')[0m
+  [1m[35m (37.6ms)[0m  CREATE INDEX "index_trips_on_Line_id" ON "trips" ("Line_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.5ms)[0m  PRAGMA index_info('index_trips_on_Line_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_DepartureStation_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_ArrivalStation_id')
+  [1m[36m (23.0ms)[0m  [1mCREATE INDEX "index_trips_on_Train_id" ON "trips" ("Train_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_info('index_trips_on_Train_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_Line_id')
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_info('index_trips_on_DepartureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_ArrivalStation_id')
+  [1m[36m (11.8ms)[0m  [1mCREATE INDEX "index_trips_on_TripType_id" ON "trips" ("TripType_id")[0m
+  [1m[35m (14.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'customer' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (8.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (8.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (12.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (6.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121105110403')
+  [1m[36m (8.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121105105705')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121105105742')
+  [1m[36m (8.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121105110106')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121105110012')
+  [1m[36m (6.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121105105910')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121105110235')
+  [1m[36m (6.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121105000051')[0m
+  [1m[35m (0.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (11.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (5.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20121105000051)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'customer' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (20.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105000051')[0m
+  [1m[35m (36.2ms)[0m  commit transaction
+Migrating to CreateLines (20121105105705)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105105705')[0m
+  [1m[35m (10.2ms)[0m  commit transaction
+Migrating to CreateStations (20121105105742)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105105742')[0m
+  [1m[35m (12.2ms)[0m  commit transaction
+Migrating to CreateTripTypes (20121105105910)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (10.1ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105105910')[0m
+  [1m[35m (10.1ms)[0m  commit transaction
+Migrating to CreateTrains (20121105110012)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105110012')[0m
+  [1m[35m (13.8ms)[0m  commit transaction
+Migrating to CreateLineStations (20121105110106)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (14.0ms)[0m  CREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "Line_id" integer, "Station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("line_stations")[0m
+  [1m[35m (0.5ms)[0m  CREATE INDEX "index_line_stations_on_Line_id" ON "line_stations" ("Line_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("line_stations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_line_stations_on_Line_id')
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_line_stations_on_Station_id" ON "line_stations" ("Station_id")[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121105110106')
+  [1m[36m (18.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateReservations (20121105110235)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "User_id" integer, "Trip_id" integer, "ArrivalStation_id" integer, "DepartureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_reservations_on_User_id" ON "reservations" ("User_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_User_id')[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_reservations_on_Trip_id" ON "reservations" ("Trip_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_Trip_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_User_id')[0m
+  [1m[35m (0.3ms)[0m  CREATE INDEX "index_reservations_on_ArrivalStation_id" ON "reservations" ("ArrivalStation_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_ArrivalStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_Trip_id')[0m
+  [1m[35m (4.3ms)[0m  PRAGMA index_info('index_reservations_on_User_id')
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_reservations_on_DepartureStation_id" ON "reservations" ("DepartureStation_id")[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121105110235')
+  [1m[36m (31.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTrips (20121105110403)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "TripType_id" integer, "Train_id" integer, "Line_id" integer, "ArrivalStation_id" integer, "DepartureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.6ms)[0m  [1mCREATE INDEX "index_trips_on_TripType_id" ON "trips" ("TripType_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_info('index_trips_on_TripType_id')[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_trips_on_Train_id" ON "trips" ("Train_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_Train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_TripType_id')[0m
+  [1m[35m (0.3ms)[0m  CREATE INDEX "index_trips_on_Line_id" ON "trips" ("Line_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (6.4ms)[0m  PRAGMA index_info('index_trips_on_Line_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_Train_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_TripType_id')
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_trips_on_ArrivalStation_id" ON "trips" ("ArrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_ArrivalStation_id')[0m
+  [1m[35m (4.6ms)[0m  PRAGMA index_info('index_trips_on_Line_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_Train_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_TripType_id')
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_trips_on_DepartureStation_id" ON "trips" ("DepartureStation_id")[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121105110403')
+  [1m[36m (52.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (14.6ms)[0m  select sqlite_version(*)
+  [1m[36m (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_Station_id')[0m
+  [1m[35m (0.5ms)[0m  PRAGMA index_info('index_line_stations_on_Line_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("lines")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_reservations_on_DepartureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_ArrivalStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_Trip_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_User_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("stations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trains")
+  [1m[36m (4.3ms)[0m  [1mPRAGMA index_list("trip_types")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_DepartureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_ArrivalStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_Line_id')[0m
+  [1m[35m (1.0ms)[0m  PRAGMA index_info('index_trips_on_Train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_TripType_id')[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_info('index_users_on_email')

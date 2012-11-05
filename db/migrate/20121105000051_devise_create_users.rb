@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :role, :null => false, :default => "customer"
       t.string :cctype, :null => false, :default => ""
       t.string :ccnumber, :null => false, :default => ""
-      t.date :ccvalidity, :null => false, :default => ""
+      t.date :ccvalidity, :null => false
 
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
