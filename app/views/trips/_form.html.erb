@@ -13,27 +13,27 @@
 
   <div class="field">
     <%= f.label :beginTime %><br />
-    <%= f.datetime_select :beginTime %>
+    <%= f.time_select :beginTime %>
   </div>
   <div class="field">
     <%= f.label :TripType %><br />
-    <%= f.text_field :TripType %>
+    <%= f.text_field :trip_type %>
   </div>
   <div class="field">
     <%= f.label :Train %><br />
-    <%= f.text_field :Train %>
+    <%= f.text_field :train %>
   </div>
   <div class="field">
     <%= f.label :Line %><br />
-    <%= f.text_field :Line %>
+    <%= f.text_field :line %>
   </div>
   <div class="field">
     <%= f.label :ArrivalStation %><br />
-    <%= f.text_field :ArrivalStation %>
+    <%= f.text_field :station %>
   </div>
   <div class="field">
     <%= f.label :DepartureStation %><br />
-    <%= f.text_field :DepartureStation %>
+    <%= f.text_field :station %>
   </div>
   <div class="actions">
     <%= f.submit %>
