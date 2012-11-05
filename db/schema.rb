@@ -84,14 +84,14 @@ ActiveRecord::Schema.define(:version => 20121105110403) do
   add_index "trips", ["TripType_id"], :name => "index_trips_on_TripType_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name",                   :default => "",         :null => false
-    t.string   "address",                :default => "",         :null => false
-    t.string   "role",                   :default => "customer", :null => false
-    t.string   "cctype",                 :default => "",         :null => false
-    t.string   "ccnumber",               :default => "",         :null => false
-    t.date     "ccvalidity",                                     :null => false
-    t.string   "email",                  :default => "",         :null => false
-    t.string   "encrypted_password",     :default => "",         :null => false
+    t.string   "name",                   :default => "",      :null => false
+    t.string   "address",                :default => "",      :null => false
+    t.string   "role",                   :default => "guest", :null => false
+    t.string   "cctype",                 :default => "",      :null => false
+    t.string   "ccnumber",               :default => "",      :null => false
+    t.date     "ccvalidity",                                  :null => false
+    t.string   "email",                  :default => "",      :null => false
+    t.string   "encrypted_password",     :default => "",      :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(:version => 20121105110403) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

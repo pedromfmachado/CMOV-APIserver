@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :name, :null => false, :default => ""
       t.string :address, :null => false, :default => ""
-      t.string :role, :null => false, :default => "customer"
+      t.string :role, :null => false, :default => "guest"
       t.string :cctype, :null => false, :default => ""
       t.string :ccnumber, :null => false, :default => ""
       t.date :ccvalidity, :null => false
