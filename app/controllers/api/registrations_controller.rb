@@ -9,7 +9,7 @@ class Api::RegistrationsController < Api::BaseController
       return
     else
       warden.custom_failure!
-      render :json=>{user.errors, :success => false}
+      render :json=>user.errors, :success => false
     end
   end
 end
