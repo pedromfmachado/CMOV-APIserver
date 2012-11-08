@@ -16985,3 +16985,513 @@ Completed 422 Unprocessable Entity in 8ms (Views: 0.7ms | ActiveRecord: 0.4ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-08 03:45:46 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  Rendered welcome/index.html.erb within layouts/application (464.3ms)
+Completed 200 OK in 1177ms (Views: 1164.7ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:47 +0000
+Served asset /line_stations.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:47 +0000
+Served asset /reservations.css - 304 Not Modified (116ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /welcome.css - 304 Not Modified (28ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /trains.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /lines.css - 304 Not Modified (24ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /stations.css - 304 Not Modified (28ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /trips.css - 304 Not Modified (48ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /trip_types.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /jquery.js - 304 Not Modified (40ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /lines.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /line_stations.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /stations.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /reservations.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /trains.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /trip_types.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /trips.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:48 +0000
+Served asset /welcome.js - 304 Not Modified (8ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"t4+9rzjr1diqlQSJ4xu8JCmtDrfLnLrN7o0AWxg1MSM="}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost/
+Completed 302 Found in 140ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"t4+9rzjr1diqlQSJ4xu8JCmtDrfLnLrN7o0AWxg1MSM="}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost/
+Completed 302 Found in 40ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 76ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Served asset /scaffolds.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:54 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /lines.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /trips.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-08 03:45:55 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (8.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (148.1ms)
+Completed 200 OK in 236ms (Views: 228.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /reservations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /trip_types.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:02 +0000
+Served asset /trips.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /line_stations.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /reservations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:03 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-11-08 03:46:07 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"adytbyfoF/CCPkIjifW8NYLFFqqReEkG/Jbn5fHopOo=", "user"=>{"email"=>"pedromfmachado@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'pedromfmachado@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-11-06 16:46:47.489547', "current_sign_in_at" = '2012-11-08 03:46:08.517185', "sign_in_count" = 6, "updated_at" = '2012-11-08 03:46:08.521187' WHERE "users"."id" = 1
+  [1m[36m (16.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost/
+Completed 302 Found in 1197ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-08 03:46:08 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered welcome/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 64ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:08 +0000
+Served asset /line_stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:08 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /stations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /trains.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /reservations.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /lines.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /trip_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /trips.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /line_stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /reservations.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /lines.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /stations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /trains.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /trip_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /trips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-08 03:46:09 +0000
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2012-11-08 03:46:15 +0000
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT "users".* FROM "users" 
+Completed 200 OK in 140ms (Views: 20.0ms | ActiveRecord: 8.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-08 04:02:51 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered welcome/index.html.erb within layouts/application (442.5ms)
+Completed 200 OK in 1074ms (Views: 998.7ms | ActiveRecord: 72.3ms)
+
+
+Started GET "/assets/line_stations.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /line_stations.css - 200 OK (83ms)
+
+
+Started GET "/assets/trains.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /trains.css - 200 OK (34ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /scaffolds.css - 200 OK (20ms)
+
+
+Started GET "/assets/lines.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /lines.css - 200 OK (33ms)
+
+
+Started GET "/assets/stations.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /stations.css - 200 OK (24ms)
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /reservations.css - 200 OK (29ms)
+
+
+Started GET "/assets/trip_types.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /trip_types.css - 200 OK (13ms)
+
+
+Started GET "/assets/trips.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /trips.css - 200 OK (28ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /welcome.css - 200 OK (49ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /jquery.js - 200 OK (33ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:53 +0000
+Served asset /jquery_ujs.js - 200 OK (35ms)
+
+
+Started GET "/assets/line_stations.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /line_stations.js - 200 OK (51ms)
+
+
+Started GET "/assets/lines.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /lines.js - 200 OK (8ms)
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /reservations.js - 200 OK (20ms)
+
+
+Started GET "/assets/stations.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /stations.js - 200 OK (30ms)
+
+
+Started GET "/assets/trains.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /trains.js - 200 OK (25ms)
+
+
+Started GET "/assets/trip_types.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /trip_types.js - 200 OK (11ms)
+
+
+Started GET "/assets/trips.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /trips.js - 200 OK (27ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2012-11-08 04:02:54 +0000
+Served asset /welcome.js - 200 OK (15ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-08 04:02:56 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered users/index.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 184ms (Views: 86.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2012-11-08 04:03:01 +0000
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users" [0m
+Completed 200 OK in 278ms (Views: 43.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/promote/4" for 127.0.0.1 at 2012-11-08 04:03:08 +0000
+Processing by UsersController#promote as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (2.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (3.0ms)[0m  UPDATE "users" SET "role" = 'inspector', "updated_at" = '2012-11-08 04:03:08.522646' WHERE "users"."id" = 4
+  [1m[36m (14.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost/users
+Completed 302 Found in 127ms (ActiveRecord: 21.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-08 04:03:08 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered users/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 128ms (Views: 75.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/demote/4" for 127.0.0.1 at 2012-11-08 04:03:11 +0000
+Processing by UsersController#demote as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  UPDATE "users" SET "role" = 'customer', "updated_at" = '2012-11-08 04:03:11.436415' WHERE "users"."id" = 4
+  [1m[36m (31.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost/users
+Completed 302 Found in 99ms (ActiveRecord: 34.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-08 04:03:11 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered users/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 128ms (Views: 65.1ms | ActiveRecord: 2.0ms)
