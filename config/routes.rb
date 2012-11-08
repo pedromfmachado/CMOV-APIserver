@@ -14,7 +14,7 @@ CMOVApiserver::Application.routes.draw do
 
   namespace :api do
     devise_for :users
-    #resources :recipes, :only=>[:index, :show]
+    resources :lines, :only=>[:index, :show]
   end  
 
   match "demote/:id" => "users#demote"

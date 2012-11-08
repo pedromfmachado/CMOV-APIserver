@@ -9,21 +9,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Stations
-sjoao = Station.create({ name: 'Hospital de São João' })
+sjoao = Station.create({ name: 'Hospital de Sao Joao' })
 ipo = Station.create({ name: 'IPO' })
 salgueiros = Station.create({ name: 'Salgueiros' })
 trindade = Station.create({ name: 'Trindade' })
-joaodeus = Station.create({ name: 'João de Deus' })
+joaodeus = Station.create({ name: 'Joao de Deus' })
 
 povoadevarzim = Station.create({ name: 'Póvoa de Varzim' })
 viladoconde = Station.create({ name: 'Vila do Conde' })
 mindelo = Station.create({ name: 'Mindelo' })
-campanha = Station.create({ name: 'Campanhã' })
+campanha = Station.create({ name: 'Campanha' })
 
 ismai = Station.create({ name: 'ISMAI' })
 senhoradahora = Station.create({ name: 'Senhora da Hora' })
 campoagosto = Station.create({ name: 'Campo 24 de Agosto' })
-dragao = Station.create({ name: 'Estádio do Dragão' })
+dragao = Station.create({ name: 'Estadio do Dragao' })
 
 # Lines
 lines = Line.create([{ name: 'Amarela' }, { name: 'Vermelha' } , { name: 'Azul' } ])
