@@ -15,7 +15,7 @@ salgueiros = Station.create({ name: 'Salgueiros' })
 trindade = Station.create({ name: 'Trindade' })
 joaodeus = Station.create({ name: 'Joao de Deus' })
 
-povoadevarzim = Station.create({ name: 'Póvoa de Varzim' })
+povoadevarzim = Station.create({ name: 'Povoa de Varzim' })
 viladoconde = Station.create({ name: 'Vila do Conde' })
 mindelo = Station.create({ name: 'Mindelo' })
 campanha = Station.create({ name: 'Campanha' })
