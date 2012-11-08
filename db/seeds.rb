@@ -28,24 +28,24 @@ dragao = Station.create({ name: 'Estadio do Dragao' })
 # Lines
 lines = Line.create([{ name: 'Amarela' }, { name: 'Vermelha' } , { name: 'Azul' } ])
 
-# Line_Stations
-Line_Station.create({ "order"=>1,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>sjoao })
-Line_Station.create({ "order"=>2,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>ipo })
-Line_Station.create({ "order"=>3,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>salgueiros })
-Line_Station.create({ "order"=>4,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>trindade })
-Line_Station.create({ "order"=>5,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>joaodeus })
+# LineStations
+LineStation.create({ "order"=>1,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>sjoao })
+LineStation.create({ "order"=>2,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>ipo })
+LineStation.create({ "order"=>3,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>salgueiros })
+LineStation.create({ "order"=>4,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>trindade })
+LineStation.create({ "order"=>5,"distance"=>5,"Line_id"=>lines.first ,"Stations_id"=>joaodeus })
 
-Line_Station.create({ "order"=>1,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>povoadevarzim })
-Line_Station.create({ "order"=>2,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>viladoconde })
-Line_Station.create({ "order"=>3,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>mindelo })
-Line_Station.create({ "order"=>4,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>trindade })
-Line_Station.create({ "order"=>5,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>campanha })
+LineStation.create({ "order"=>1,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>povoadevarzim })
+LineStation.create({ "order"=>2,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>viladoconde })
+LineStation.create({ "order"=>3,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>mindelo })
+LineStation.create({ "order"=>4,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>trindade })
+LineStation.create({ "order"=>5,"distance"=>5,"Line_id"=>lines.second ,"Stations_id"=>campanha })
 
-Line_Station.create({ "order"=>1,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>ismai })
-Line_Station.create({ "order"=>2,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>senhoradahora })
-Line_Station.create({ "order"=>3,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>trindade })
-Line_Station.create({ "order"=>4,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>campoagosto })
-Line_Station.create({ "order"=>5,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>dragao })
+LineStation.create({ "order"=>1,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>ismai })
+LineStation.create({ "order"=>2,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>senhoradahora })
+LineStation.create({ "order"=>3,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>trindade })
+LineStation.create({ "order"=>4,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>campoagosto })
+LineStation.create({ "order"=>5,"distance"=>5,"Line_id"=>lines.third ,"Stations_id"=>dragao })
 
 # Trains
 Train.create({"maxCapacity"=>"10", "velocity"=>60})
