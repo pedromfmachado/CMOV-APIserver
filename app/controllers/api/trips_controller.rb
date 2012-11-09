@@ -5,8 +5,12 @@ class Api::TripsController < Api::BaseController
   def index
 
     trips = Array.new
+  
+    
+
     Trip.all.each do |trip|
-      trips << { :trip => trip, :departure_station => Station.find(trip.DepartureStation_id).name,
+      trips << { :id => trip.id, :time => trip.beginTime.strftime('%H:%M'),
+                 :departure_station => Station.find(trip.DepartureStation_id).name,
                  :arrival_station => Station.find(trip.ArrivalStation_id).name }
     end
     
