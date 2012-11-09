@@ -24,8 +24,8 @@ class Api::TripsController < Api::BaseController
 
     trip = Trip.find(params[:id])
 
-    departureOrder = LineStation.find_by_Line_id(trip.DepartureStation_id).order
-    arrivalOrder = LineStation.find_by_Line_id(trip.DepartureStation_id).order
+    departureOrder = LineStation.find_by_Station_id(trip.DepartureStation_id).order
+    arrivalOrder = LineStation.find_by_Station_id(trip.ArrivalStation_id).order
 
     lineStations = LineStation.where(:order => departureOrder..arrivalOrder)
     if departureOrder < arrivalOrder
