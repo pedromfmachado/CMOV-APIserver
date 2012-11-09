@@ -15,17 +15,18 @@ class Api::TripsController < Api::BaseController
 
     trip = Trip.find(params[:id])
 
-    
+    departureOrder = LineStation.find_by_Line_id(trip.DepartureStation_id).order
+    arrivalOrder = LineStation.find_by_Line_id(trip.DepartureStation_id).order
 
-    lineStations = LineStation.where(:order => (trip.DepartureStation_)..(trip.ArrivalStation.order))
-    if trip.DepartureStation.order < trip.ArrivalStation.order
+    lineStations = LineStation.where(:order => departureOrder..arrivalOrder)
+    if departureOrder < arrivalOrder
       lineStations.order('order ASC')
     else
       lineStations.order('order DESC')
     end
 
     times = Array.new
-    actualtime = trip.beginTime
+    currentTime = trip.beginTime
     lineStations.each do |ls|
       
       station = Station.find(ls.Station_id)
@@ -33,9 +34,9 @@ class Api::TripsController < Api::BaseController
 
       timeElapsed = ls.distance.to_f / train.velocity
 
-      actualtime + actualtime + timeElapsed.hours
+      currentTime = currentTime + timeElapsed.hours
 
-      times << { :station => station } #TODO: add time to json
+      times << { :station => station, :time => currentTime }
     end
 
     render :json => { :trip => trip, :times => times }
