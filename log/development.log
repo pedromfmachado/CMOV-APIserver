@@ -25322,3 +25322,34 @@ Processing by Api::StationsController#show as HTML
   [1m[35mLine Load (0.2ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1  [["id", 2]]
   [1m[36mLine Load (0.1ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1[0m  [["id", 3]]
 Completed 200 OK in 73ms (Views: 3.6ms | ActiveRecord: 7.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/lines" for 127.0.0.1 at 2012-11-09 02:39:32 +0000
+Processing by Api::LinesController#index as */*
+Redirected to http://localhost/
+Completed 302 Found in 33ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/lines" for 127.0.0.1 at 2012-11-09 02:42:29 +0000
+Processing by Api::LinesController#index as */*
+Redirected to http://localhost/
+Completed 302 Found in 28ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/lines" for 127.0.0.1 at 2012-11-09 02:45:47 +0000
+Processing by Api::LinesController#index as */*
+Redirected to http://localhost/
+Completed 302 Found in 86ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/api/lines" for 127.0.0.1 at 2012-11-09 02:46:53 +0000
+Processing by Api::LinesController#index as */*
+Redirected to http://localhost/
+Completed 302 Found in 22ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-09 02:46:53 +0000
+Processing by WelcomeController#index as */*
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)

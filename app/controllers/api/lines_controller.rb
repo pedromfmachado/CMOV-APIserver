@@ -1,5 +1,4 @@
 class Api::LinesController < Api::BaseController
-  load_and_authorize_resource
 
   # GET /lines
   # GET /lines.json

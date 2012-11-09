@@ -1,5 +1,4 @@
 class Api::StationsController < Api::BaseController
-  load_and_authorize_resource
 
   # GET /stations
   # GET /stations.json
