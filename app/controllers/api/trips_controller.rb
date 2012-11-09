@@ -45,7 +45,7 @@ class Api::TripsController < Api::BaseController
 
       currentTime = currentTime + timeElapsed.hours
 
-      times << { :station => station, :time => currentTime }
+      times << { :station => station, :time => currentTime.strftime('%H:%M') }
     end
 
     render :json => { :trip => trip, :times => times }
