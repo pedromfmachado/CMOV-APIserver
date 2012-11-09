@@ -25353,3 +25353,125 @@ Started GET "/" for 127.0.0.1 at 2012-11-09 02:46:53 +0000
 Processing by WelcomeController#index as */*
   Rendered welcome/index.html.erb within layouts/application (2.3ms)
 Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/lines" for 127.0.0.1 at 2012-11-09 02:50:00 +0000
+Processing by Api::LinesController#index as */*
+  [1m[35mLine Load (0.1ms)[0m  SELECT "lines".* FROM "lines" 
+Completed 200 OK in 13ms (Views: 2.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/lines/1" for 127.0.0.1 at 2012-11-09 05:09:07 +0000
+Processing by Api::LinesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLine Load (0.4ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mLineStation Load (0.7ms)[0m  SELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."line_id" = '1'
+  [1m[36mStation Load (0.2ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+Completed 200 OK in 66ms (Views: 2.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/lines/4" for 127.0.0.1 at 2012-11-09 05:09:23 +0000
+Processing by Api::LinesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mLine Load (0.2ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1  [["id", "4"]]
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Line with id=4):
+  app/controllers/api/lines_controller.rb:13:in `show'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.6ms)
+
+
+Started GET "/api/lines/1" for 127.0.0.1 at 2012-11-09 05:09:26 +0000
+Processing by Api::LinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLine Load (0.1ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mLineStation Load (0.2ms)[0m  SELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."line_id" = '1'
+  [1m[36mStation Load (0.2ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+Completed 200 OK in 25ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/lines/4" for 127.0.0.1 at 2012-11-09 05:10:20 +0000
+Processing by Api::LinesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mLine Load (0.1ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1  [["id", "4"]]
+Completed 500 Internal Server Error in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Line with id=4):
+  app/controllers/api/lines_controller.rb:13:in `show'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.7ms)
+
+
+Started GET "/api/lines/4" for 127.0.0.1 at 2012-11-09 05:10:21 +0000
+Processing by Api::LinesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLine Load (0.2ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1[0m  [["id", "4"]]
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Line with id=4):
+  app/controllers/api/lines_controller.rb:13:in `show'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (52.3ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (64.1ms)
+
+
+Started GET "/api/lines/1" for 127.0.0.1 at 2012-11-09 05:10:23 +0000
+Processing by Api::LinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mLine Load (0.1ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mLineStation Load (0.2ms)[0m  [1mSELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."Line_id" = 1[0m
+  [1m[35mStation Load (0.2ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mStation Load (0.0ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 5]]
+Completed 200 OK in 82ms (Views: 5.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/lines" for 127.0.0.1 at 2012-11-09 05:10:29 +0000
+Processing by Api::LinesController#index as */*
+  [1m[36mLine Load (0.3ms)[0m  [1mSELECT "lines".* FROM "lines" [0m
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/lines/1" for 127.0.0.1 at 2012-11-09 05:10:32 +0000
+Processing by Api::LinesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mLine Load (0.1ms)[0m  SELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mLineStation Load (0.2ms)[0m  [1mSELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."Line_id" = 1[0m
+  [1m[35mStation Load (0.2ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 5]]
+Completed 200 OK in 12ms (Views: 2.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/lines/1" for 127.0.0.1 at 2012-11-09 05:10:38 +0000
+Processing by Api::LinesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLine Load (0.1ms)[0m  [1mSELECT "lines".* FROM "lines" WHERE "lines"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mLineStation Load (0.0ms)[0m  SELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."Line_id" = 1
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 5]]
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 0.5ms)
