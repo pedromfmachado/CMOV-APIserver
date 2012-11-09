@@ -48,13 +48,26 @@ LineStation.create({ "order"=>4,"distance"=>5,"Line_id"=>lines.third.id ,"Statio
 LineStation.create({ "order"=>5,"distance"=>5,"Line_id"=>lines.third.id ,"Station_id"=>dragao.id })
 
 # Trains
-Train.create({"maxCapacity"=>"10", "velocity"=>60})
-Train.create({"maxCapacity"=>"5", "velocity"=>60})
-Train.create({"maxCapacity"=>"20", "velocity"=>60})
-Train.create({"maxCapacity"=>"2", "velocity"=>60})
+train1 = Train.create({"maxCapacity"=>"10", "velocity"=>60})
+train2 = Train.create({"maxCapacity"=>"5", "velocity"=>60})
+train3 = Train.create({"maxCapacity"=>"20", "velocity"=>60})
+train4 = Train.create({"maxCapacity"=>"2", "velocity"=>60})
 
 # Users
 User.create({"name"=>"joao","address"=>"rua de camoes","role"=>"inspector","email"=>"joao@h.com"})
 User.create({"name"=>"jaime","address"=>"rua das flores","role"=>"customer","cctype"=>"visa","ccnumber"=>"12345","ccvalidity"=>"2014-10-10","email"=>"jaime@h.com"})
 User.create({"name"=>"filipe","address"=>"rua de amorim","role"=>"customer","cctype"=>"americanexpress","ccnumber"=>"11111","ccvalidity"=>"2013-10-10","email"=>"filipe@h.com"})
 User.create({"name"=>"fernando","address"=>"rua monteiro","role"=>"customer","cctype"=>"visa","ccnumber"=>"12315","ccvalidity"=>"2015-10-10","email"=>"fernando@h.com"})
+
+# TripType
+local = TripTypecreate({"local", 2.5})
+regional = TripTypecreate({"regional", 5.0})
+
+# Trips
+Trip.create({"beginTime"=>"12:00", local.id, train4.id, lines.first.id, sjoao.id, joaodedeus.id })
+Trip.create({"beginTime"=>"15:00", local.id, train4.id, lines.first.id, sjoao.id, joaodedeus.id })
+Trip.create({"beginTime"=>"18:00", local.id, train4.id, lines.first.id, sjoao.id, joaodedeus.id })
+Trip.create({"beginTime"=>"12:00", regional.id, train3.id, lines.second.id, povoadevarzim.id, campanha.id })
+Trip.create({"beginTime"=>"15:00", regional.id, train3.id, lines.second.id, povoadevarzim.id, campanha.id })
+Trip.create({"beginTime"=>"18:00", regional.id, train3.id, lines.second.id, povoadevarzim.id, campanha.id })
+
