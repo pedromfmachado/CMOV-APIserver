@@ -60,8 +60,8 @@ User.create({"name"=>"filipe","address"=>"rua de amorim","role"=>"customer","cct
 User.create({"name"=>"fernando","address"=>"rua monteiro","role"=>"customer","cctype"=>"visa","ccnumber"=>"12315","ccvalidity"=>"2015-10-10","email"=>"fernando@h.com"})
 
 # TripType
-local = TripTypecreate({"local", 2.5})
-regional = TripTypecreate({"regional", 5.0})
+local = TripType.create({"local", 2.5})
+regional = TripType.create({"regional", 5.0})
 
 # Trips
 Trip.create({"beginTime"=>"12:00", local.id, train4.id, lines.first.id, sjoao.id, joaodedeus.id })
@@ -71,3 +71,4 @@ Trip.create({"beginTime"=>"12:00", regional.id, train3.id, lines.second.id, povo
 Trip.create({"beginTime"=>"15:00", regional.id, train3.id, lines.second.id, povoadevarzim.id, campanha.id })
 Trip.create({"beginTime"=>"18:00", regional.id, train3.id, lines.second.id, povoadevarzim.id, campanha.id })
 
+# Reservations
