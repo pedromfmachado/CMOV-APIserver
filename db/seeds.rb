@@ -64,11 +64,14 @@ local = TripType.create({"name"=>"local", "price"=>2.5})
 regional = TripType.create({"name"=>"regional", "price"=>5.0})
 
 # Trips
-Trip.create({"beginTime"=>"12:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
-Trip.create({"beginTime"=>"15:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
-Trip.create({"beginTime"=>"18:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
-Trip.create({"beginTime"=>"12:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
-Trip.create({"beginTime"=>"15:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
-Trip.create({"beginTime"=>"18:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
+trip1_12 = Trip.create({"beginTime"=>"12:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
+trip1_15 = Trip.create({"beginTime"=>"15:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
+trip1_18 = Trip.create({"beginTime"=>"18:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
+trip2_12 = Trip.create({"beginTime"=>"12:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
+trip2_15 = Trip.create({"beginTime"=>"15:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
+trip2_18 = Trip.create({"beginTime"=>"18:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
 
 # Reservations
+Reservation.create({"User_id"=>customer1.id,"Trip_id"=>trip1_12.id,"DepartureStation_id"=>sjoao.id,"ArrivalStation_id"=>ipo.id})
+Reservation.create({"User_id"=>customer2.id,"Trip_id"=>trip1_12.id,"DepartureStation_id"=>sjoao.id,"ArrivalStation_id"=>ipo.id})
+Reservation.create({"User_id"=>customer3.id,"Trip_id"=>trip1_12.id,"DepartureStation_id"=>ipo.id,"ArrivalStation_id"=>salgueiros.id})
