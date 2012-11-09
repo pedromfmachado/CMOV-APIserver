@@ -15,8 +15,8 @@
   <tr>
     <td><%= line_station.order %></td>
     <td><%= line_station.distance %></td>
-    <td><%= line_station.Line %></td>
-    <td><%= line_station.Station %></td>
+    <td><%= line_station.Line.name %></td>
+    <td><%= line_station.Station.name %></td>
     <td><%= link_to 'Show', line_station %></td>
     <td><%= link_to 'Edit', edit_line_station_path(line_station) %></td>
     <td><%= link_to 'Destroy', line_station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
