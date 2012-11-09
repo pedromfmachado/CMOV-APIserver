@@ -28,7 +28,7 @@ class Api::TripsController < Api::BaseController
     arrivalOrder = LineStation.find_by_Station_id(trip.ArrivalStation_id).order
 
     lineStations = LineStation.where(:order => departureOrder..arrivalOrder)
-    lineStations = lineStations.where(:line_id => trip.Line_id)
+    lineStations = lineStations.where(:Line_id => trip.Line_id)
     if departureOrder < arrivalOrder
       lineStations.order('order ASC')
     else
