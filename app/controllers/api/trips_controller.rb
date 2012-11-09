@@ -4,8 +4,13 @@ class Api::TripsController < Api::BaseController
   # GET /trips.json
   def index
 
-    trips = Trip.all
-    render :json => trips 
+    trips = Array.new
+    Trip.all.each do |trip|
+      trips << { :trip => trip, :departure_station => Station.find(trip.DepartureStation_id).name,
+                 :arrival_station => Station.find(trip.ArrivalStation_id).name }
+    end
+    
+    render :json => trips
 
   end
 
