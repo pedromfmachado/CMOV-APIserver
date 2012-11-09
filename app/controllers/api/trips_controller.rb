@@ -42,11 +42,10 @@ class Api::TripsController < Api::BaseController
       station = Station.find(ls.Station_id)
       train = Train.find(trip.Train_id)
 
-      timeElapsed = ls.distance.to_f / train.velocity
-
-      currentTime = currentTime + timeElapsed.hours
-
       times << { :station => station, :time => currentTime.strftime('%H:%M') }
+
+      timeElapsed = ls.distance.to_f / train.velocity
+      currentTime = currentTime + timeElapsed.hours
     end
 
     render :json => { :trip => trip, :times => times }
