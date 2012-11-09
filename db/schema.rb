@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106160558) do
+ActiveRecord::Schema.define(:version => 20121109181639) do
 
   create_table "line_stations", :force => true do |t|
     t.integer  "order"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20121106160558) do
     t.integer  "DepartureStation_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.date     "date"
   end
 
   add_index "reservations", ["ArrivalStation_id"], :name => "index_reservations_on_ArrivalStation_id"

@@ -31573,3 +31573,44 @@ Processing by Api::TripsController#index as */*
   [1m[35mCACHE (0.0ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
 Completed 200 OK in 109ms (Views: 4.6ms | ActiveRecord: 1.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20121105000051)
+Migrating to CreateLines (20121105105705)
+Migrating to CreateStations (20121105105742)
+Migrating to CreateTripTypes (20121105105910)
+Migrating to CreateTrains (20121105110012)
+Migrating to CreateLineStations (20121105110106)
+Migrating to CreateReservations (20121105110235)
+Migrating to CreateTrips (20121105110403)
+Migrating to AddDeviseColumnsToUser (20121106160558)
+Migrating to AddDateToReservation (20121109181639)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "reservations" ADD "date" date
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121109181639')[0m
+  [1m[35m (32.6ms)[0m  commit transaction
+  [1m[36m (1.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("line_stations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_line_stations_on_Station_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_line_stations_on_Line_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("lines")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_reservations_on_User_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_reservations_on_Trip_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_reservations_on_DepartureStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_reservations_on_ArrivalStation_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trains")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("trip_types")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_TripType_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_Train_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_Line_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_DepartureStation_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_ArrivalStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
