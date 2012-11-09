@@ -33775,3 +33775,61 @@ Processing by Api::TripsController#show as HTML
   [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 13]]
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1[0m  [["id", 4]]
 Completed 200 OK in 242ms (Views: 10.0ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api/trips/6" for 127.0.0.1 at 2012-11-09 19:35:59 +0000
+Processing by Api::TripsController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[35mTrip Load (0.2ms)[0m  SELECT "trips".* FROM "trips" WHERE "trips"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mLineStation Load (0.1ms)[0m  [1mSELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."Station_id" = 6 LIMIT 1[0m
+  [1m[35mLineStation Load (0.3ms)[0m  SELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."Station_id" = 9 LIMIT 1
+  [1m[36mLineStation Load (0.2ms)[0m  [1mSELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."line_id" = 2 AND ("line_stations"."order" BETWEEN 1 AND 5)[0m
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mTrain Load (0.1ms)[0m  [1mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 100ms (Views: 3.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/trips" for 127.0.0.1 at 2012-11-09 19:36:10 +0000
+Processing by Api::TripsController#index as */*
+  [1m[35mTrip Load (0.3ms)[0m  SELECT "trips".* FROM "trips" 
+  [1m[36mStation Load (0.2ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mStation Load (0.1ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1  [["id", 9]]
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/trips/6" for 127.0.0.1 at 2012-11-09 19:36:16 +0000
+Processing by Api::TripsController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mTrip Load (0.1ms)[0m  [1mSELECT "trips".* FROM "trips" WHERE "trips"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  [1m[35mLineStation Load (0.1ms)[0m  SELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."Station_id" = 6 LIMIT 1
+  [1m[36mLineStation Load (0.1ms)[0m  [1mSELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."Station_id" = 9 LIMIT 1[0m
+  [1m[35mLineStation Load (0.1ms)[0m  SELECT "line_stations".* FROM "line_stations" WHERE "line_stations"."line_id" = 2 AND ("line_stations"."order" BETWEEN 1 AND 5)
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mTrain Load (0.1ms)[0m  SELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mStation Load (0.2ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mStation Load (0.1ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mStation Load (0.3ms)[0m  [1mSELECT "stations".* FROM "stations" WHERE "stations"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 27ms (Views: 6.2ms | ActiveRecord: 1.3ms)
