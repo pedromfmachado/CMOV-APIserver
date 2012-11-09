@@ -16,6 +16,7 @@ CMOVApiserver::Application.routes.draw do
     devise_for :users
     resources :lines
     resources :stations
+    resources :trips
   end  
 
   match "demote/:id" => "users#demote"

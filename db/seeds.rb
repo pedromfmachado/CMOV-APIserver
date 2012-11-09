@@ -64,11 +64,11 @@ local = TripType.create({"name"=>"local", "price"=>2.5})
 regional = TripType.create({"name"=>"regional", "price"=>5.0})
 
 # Trips
-Trip.create({"beginTime"=>"12:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "departureStation_id"=>sjoao.id, "arrivalStation_id"=>joaodedeus.id })
-Trip.create({"beginTime"=>"15:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "departureStation_id"=>sjoao.id, "arrivalStation_id"=>joaodedeus.id })
-Trip.create({"beginTime"=>"18:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "departureStation_id"=>sjoao.id, "arrivalStation_id"=>joaodedeus.id })
-Trip.create({"beginTime"=>"12:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "departureStation_id"=>povoadevarzim.id, "arrivalStation_id"=>campanha.id })
-Trip.create({"beginTime"=>"15:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "departureStation_id"=>povoadevarzim.id, "arrivalStation_id"=>campanha.id })
-Trip.create({"beginTime"=>"18:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "departureStation_id"=>povoadevarzim.id, "arrivalStation_id"=>campanha.id })
+Trip.create({"beginTime"=>"12:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
+Trip.create({"beginTime"=>"15:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
+Trip.create({"beginTime"=>"18:00", "TripType_id"=>local.id, "Train_id"=>train4.id, "Line_id"=>lines.first.id, "DepartureStation_id"=>sjoao.id, "ArrivalStation_id"=>joaodeus.id })
+Trip.create({"beginTime"=>"12:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
+Trip.create({"beginTime"=>"15:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
+Trip.create({"beginTime"=>"18:00", "TripType_id"=>regional.id, "Train_id"=>train3.id, "Line_id"=>lines.second.id, "DepartureStation_id"=>povoadevarzim.id, "ArrivalStation_id"=>campanha.id })
 
 # Reservations
