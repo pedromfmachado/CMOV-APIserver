@@ -23,16 +23,35 @@ class Api::ReservationsController < Api::BaseController
   def create
 
     result = Array.new
-    trip = makeReservations(6, 1, Array.new, result)
+    trip = makeReservations(params[:departureStation_id].to_i, params[:arrivalStation_id].to_i, Array.new, result)
+
+    result << params[:departureStation_id].to_i
 
     result.reverse!
 
-    render :json => result
+    trips = Array.new
+    actual_time = Time.now
+    for i in 0..(result.count-2)
+
+      trips << { :trip => getNextTrip(result[i], result[i+1], actual_time), :intersection => result[i],
+                :time => actual_time }
+
+    end
+
+    render :json =>  { :trips => trips }
 
   end
 
   private
-  def getNextTrip(departureStation_id, arrivalStation_id, line_id, actual_time)
+  def getNextTrip(departureStation_id, arrivalStation_id, actual_time)
+
+    departureLines = LineStation.where(:Station_id => departureStation_id).map { |x| x.Line_id }
+    arrivalLines = LineStation.where(:Station_id => arrivalStation_id).map { |x| x.Line_id }
+
+    line_id = (departureLines & arrivalLines).first
+
+    puts "line: "
+    puts line_id
 
     departureOrder = LineStation.where(:Station_id => departureStation_id, :Line_id => line_id).first.order
     arrivalOrder = LineStation.where(:Station_id => arrivalStation_id, :Line_id => line_id).first.order
@@ -51,6 +70,7 @@ class Api::ReservationsController < Api::BaseController
 
       if (tripDepartureOrder <= departureOrder && tripArrivalOrder >= arrivalOrder)
 
+        actual_time = getStationTime(trip, departureStation_id)
         return trip
 
       end
@@ -93,7 +113,6 @@ class Api::ReservationsController < Api::BaseController
 
       if !arrival.blank?
 
-        #TODO: associate next trip to reservation
         result << arrivalStation_id
 
       else
@@ -120,6 +139,37 @@ class Api::ReservationsController < Api::BaseController
 
       end
 
+    end
+
+  end
+
+  private
+  def getStationTime(trip, station_id)
+
+    departureOrder = LineStation.find_by_Station_id(trip.DepartureStation_id).order
+    arrivalOrder = LineStation.find_by_Station_id(trip.ArrivalStation_id).order
+
+    lineStations = LineStation.where(:order => departureOrder..arrivalOrder)
+    lineStations = lineStations.where(:Line_id => trip.Line_id)
+    if departureOrder < arrivalOrder
+      lineStations.order('order ASC')
+    else
+      lineStations.order('order DESC')
+    end
+
+    times = Array.new
+    currentTime = trip.beginTime
+    lineStations.each do |ls|
+      
+      station = Station.find(ls.Station_id)
+      train = Train.find(trip.Train_id)
+
+      if station_id == ls.Station_id
+        return currentTime
+      end
+
+      timeElapsed = ls.distance.to_f / train.velocity
+      currentTime = currentTime + timeElapsed.hours
     end
 
   end

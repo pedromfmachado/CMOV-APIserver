@@ -1,6 +1,6 @@
 CMOVApiserver::Application.routes.draw do
 
-  resources :reservation_trips
+
 
   get "welcome/index"
   
@@ -13,6 +13,7 @@ CMOVApiserver::Application.routes.draw do
   resources :stations
   resources :lines
   resources :users
+  resources :reservation_trips
 
   namespace :api do
     devise_for :users
