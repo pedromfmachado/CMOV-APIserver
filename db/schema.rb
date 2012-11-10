@@ -34,17 +34,16 @@ ActiveRecord::Schema.define(:version => 20121109181639) do
   create_table "reservations", :force => true do |t|
     t.string   "uuid"
     t.integer  "User_id"
-    t.integer  "Trip_id"
     t.integer  "ArrivalStation_id"
     t.integer  "DepartureStation_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.boolean  "canceled",            :default => false, :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.date     "date"
   end
 
   add_index "reservations", ["ArrivalStation_id"], :name => "index_reservations_on_ArrivalStation_id"
   add_index "reservations", ["DepartureStation_id"], :name => "index_reservations_on_DepartureStation_id"
-  add_index "reservations", ["Trip_id"], :name => "index_reservations_on_Trip_id"
   add_index "reservations", ["User_id"], :name => "index_reservations_on_User_id"
 
   create_table "stations", :force => true do |t|
