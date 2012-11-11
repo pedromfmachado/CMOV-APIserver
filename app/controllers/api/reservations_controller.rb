@@ -71,8 +71,7 @@ class Api::ReservationsController < Api::BaseController
   def create
 
     user = User.find_by_authentication_token(params[:token])
-    puts user.id
-    puts params[:reservation][:user_id]
+
     if user == nil
     
       render :json => { :sucess => false, :errors => ["User" => "is not valid"] }
@@ -111,7 +110,7 @@ class Api::ReservationsController < Api::BaseController
 
               if trip == nil
                 render :json => { :success => false, :errors => ["Trip" => "Trip is not valid"]}
-                break
+                return
               end
 
               time = getStationTime(trip, result[i])
@@ -125,10 +124,10 @@ class Api::ReservationsController < Api::BaseController
 
 		        render :json =>  { :success => true }
 		      else
-		        render :json => { :success => false }
+		        render :json => { :success => false, :errors => ["Reservaion" => "error saving"] }
 		      end
         else
-          render :json => { :success => false }
+          render :json => { :success => false, :errors => ["Credit card provider" => "rejected the transaction"]}
         end
     
     
