@@ -37,7 +37,7 @@ class Api::ReservationsController < Api::BaseController
     for i in 0..(result.count-2)
 
       trip = getNextTrip(result[i], result[i+1], actual_time)
-      actual_time = getStationTime(trip, departureStation_id)
+      actual_time = getStationTime(trip, result[i])
 
       trips << { :trip => trip, :intersection => result[i], :time => actual_time }
 
