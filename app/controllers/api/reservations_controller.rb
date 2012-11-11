@@ -56,59 +56,61 @@ class Api::ReservationsController < Api::BaseController
     user_id = User.find_by_authentication_token[:token].id
     if params[:reservation][:user_id] != user_id
     
-      render :json => { :sucess => false }    
-      return
-
-    end
- 
-    reservation = Reservation.new(params[:reservation])
+      render :json => { :sucess => false }
     
-	  # still needs a little more testing
-    # to allow a random 25% failures
-    fail = [0,1,2,3]
-    if fail.sample == 1 or fail.sample == 2 or fail.sample == 3
+    else
+   
+      reservation = Reservation.new(params[:reservation])
+      
+	    # still needs a little more testing
+      # to allow a random 25% failures
+      fail = [0,1,2,3]
+      if fail.sample == 1 or fail.sample == 2 or fail.sample == 3
 
-		    if reservation.save
+		      if reservation.save
 
-		      departureStation_id = params[:reservation][:departureStation_id].to_i
-		      arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
-		      time = Time.parse(params[:time])
-		      date = Date.parse(params[:reservation][:date])
+		        departureStation_id = params[:reservation][:departureStation_id].to_i
+		        arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
+		        time = Time.parse(params[:time])
+		        date = Date.parse(params[:reservation][:date])
 
-		      result = Array.new
+		        result = Array.new
 
-		      makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
-	      
-		      result << departureStation_id.to_i
+		        makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
+	        
+		        result << departureStation_id.to_i
 
-		      result.reverse!
+		        result.reverse!
 
-		      for i in 0..(result.count-2)
+		        for i in 0..(result.count-2)
 
-			      trip = getNextTrip(result[i], result[i+1], time)
+			        trip = getNextTrip(result[i], result[i+1], time)
 
-            if trip == nil
-              puts 'entra'
-              render :json => { :success => false }
-              break
-            end
+              if trip == nil
+                puts 'entra'
+                render :json => { :success => false }
+                break
+              end
 
-            time = getStationTime(trip, result[i])
+              time = getStationTime(trip, result[i])
 
-			      rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
-									        :arrivalStation_id => reservation.arrivalStation_id, :time => time.strftime('%H:%M'))
+			        rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
+									          :arrivalStation_id => reservation.arrivalStation_id, :time => time.strftime('%H:%M'))
 			
-			      rt.save
+			        rt.save
 
+		        end
+
+		        render :json =>  { :success => true }
+		      else
+		        render :json => { :success => false }
 		      end
-
-		      render :json =>  { :success => true }
-		    else
-		      render :json => { :success => false }
-		    end
-      else
-        render :json => { :success => false }
-      end
+        else
+          render :json => { :success => false }
+        end
+    
+    
+    end
 
   end
 
