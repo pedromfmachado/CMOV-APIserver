@@ -73,10 +73,14 @@ class Api::ReservationsController < Api::BaseController
     user = User.find_by_authentication_token(params[:token])
     puts user.id
     puts params[:reservation][:user_id]
-    if user == nil || params[:reservation][:user_id] != user.id.to_s
+    if user == nil
     
-      render :json => { :sucess => false, :errors => ["User" => "User is not valid"] }
+      render :json => { :sucess => false, :errors => ["User" => "is not valid"] }
     
+    elsif params[:reservation][:user_id] != user.id.to_s
+  
+      render :json => { :sucess => false, :errors => ["Authentication token" => "is not valid"] }      
+
     else
    
       reservation = Reservation.new(params[:reservation])
