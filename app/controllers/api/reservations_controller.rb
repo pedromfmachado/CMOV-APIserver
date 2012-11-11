@@ -156,39 +156,47 @@ class Api::ReservationsController < Api::BaseController
   private
   def makeReservations(departureStation_id, arrivalStation_id, visited, result)
 
-    departure = LineStation.where(:station_id => departureStation_id)
+    # still needs a little more testing
+    # to allow a random 25% failures
+    fail = [0,1,2,3]
+    if fail.sample == 0
+      puts 'Your purchase was rejected by your credit card provider.'
+    else
+		  departure = LineStation.where(:station_id => departureStation_id)
 
-    departure.each do |ls|
+		  departure.each do |ls|
 
-      arrival = LineStation.where(:station_id => arrivalStation_id, :line_id => ls.line_id)
+		    arrival = LineStation.where(:station_id => arrivalStation_id, :line_id => ls.line_id)
 
-      if !arrival.blank?
+		    if !arrival.blank?
 
-        result << arrivalStation_id
+		      result << arrivalStation_id
 
-      else
+		    else
 
-        intersections = getIntersections(ls.line_id)
-        
-        intersections.each do |i|
-          
-          if !visited.include? i
+		      intersections = getIntersections(ls.line_id)
+		      
+		      intersections.each do |i|
+		        
+		        if !visited.include? i
 
-            visited << i
+		          visited << i
 
-            makeReservations(i, arrivalStation_id, visited, result)
-            
-            if !result.blank?
+		          makeReservations(i, arrivalStation_id, visited, result)
+		          
+		          if !result.blank?
 
-              result << i
+		            result << i
 
-            end
+		          end
 
-          end
+		        end
 
-        end
+		      end
 
-      end
+		    end
+
+		  end
 
     end
 
