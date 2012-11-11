@@ -54,6 +54,7 @@ train3 = Train.create({"maxCapacity"=>"20", "velocity"=>60.0})
 train4 = Train.create({"maxCapacity"=>"2", "velocity"=>60.0})
 
 # Users
+User.create({"name"=>"admin","address"=>"rua de camoes n 2","role"=>"admin","email"=>"admin@server.com"})
 User.create({"name"=>"joao","address"=>"rua de camoes","role"=>"inspector","email"=>"joao@h.com"})
 customer1 = User.create({"name"=>"jaime","address"=>"rua das flores","role"=>"customer","cctype"=>"visa","ccnumber"=>"12345","ccvalidity"=>"2014-10-10","email"=>"jaime@h.com"})
 customer2 = User.create({"name"=>"filipe","address"=>"rua de amorim","role"=>"customer","cctype"=>"americanexpress","ccnumber"=>"11111","ccvalidity"=>"2013-10-10","email"=>"filipe@h.com"})
