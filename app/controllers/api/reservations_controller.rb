@@ -89,7 +89,7 @@ class Api::ReservationsController < Api::BaseController
       departure = Station.find(result[i]).name
       arrival = Station.find(result[i+1]).name
 
-      trips << { :trip => trip, :departure => departure, :arrival => arrival, :time => time }
+      trips << { :trip => trip, :departure => departure, :arrival => arrival, :time => time.strftime('%H:%M') }
 
     end
 
