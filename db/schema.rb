@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20121111014509) do
     t.integer  "trip_id"
     t.integer  "departureStation_id"
     t.integer  "arrivalStation_id"
-    t.date     "date"
+    t.datetime "time"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

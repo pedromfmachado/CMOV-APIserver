@@ -5,7 +5,7 @@ class CreateReservationTrips < ActiveRecord::Migration
       t.references :trip
       t.references :departureStation
       t.references :arrivalStation
-      t.date :date
+      t.datetime :time
 
       t.timestamps
     end

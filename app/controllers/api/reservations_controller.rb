@@ -4,9 +4,9 @@ class Api::ReservationsController < Api::BaseController
   # GET /reservations.json
   def index
   
-    user = User.find_by_authentication_token(params[:authentication_token])
+    user = User.find_by_authentication_token(params[:token])
 
-    reservations = Reservation.find_all_by_user_id(user.id).find_all_by_canceled(false)
+    reservations = Reservation.where(:user_id => user.id, :canceled => false)
 
     result = Array.new
     reservations.each do |r|
@@ -14,11 +14,11 @@ class Api::ReservationsController < Api::BaseController
       departureStation = Station.find(r.departureStation_id).name
       arrivalStation = Station.find(r.arrivalStation_id).name
 
-      result << { :departure => departureStation, :arrival => arrivalStation, :date => r.date }
+      result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation }
 
     end
 
-    render :json => reservations
+    render :json => result
 
   end
 
@@ -26,13 +26,16 @@ class Api::ReservationsController < Api::BaseController
   # GET /reservations/1.json
   def show
 
-    user = User.find_by_authentication_token(params[:authentication_token])
+    user = User.find_by_authentication_token(params[:token])
     reservation = Reservation.find(params[:id])
-    
+
+    departureStation = Station.find(reservation.departureStation_id).name
+    arrivalStation = Station.find(reservation.arrivalStation_id).name
+
     if user.id == reservation.user_id
-      render :json => { reservation
+      render :json => { :reservation => reservation, :departure => departureStation, :arrival => arrivalStation }
     else
-      render :json { :success => false }
+      render :json => { :success => false }
     end
 
     
@@ -50,46 +53,62 @@ class Api::ReservationsController < Api::BaseController
 
   def create
 
+    user_id = User.find_by_authentication_token[:token].id
+    if params[:reservation][:user_id] != user_id
+    
+      render :json => { :sucess => false }    
+      return
+
+    end
+ 
     reservation = Reservation.new(params[:reservation])
     
-	# still needs a little more testing
+	  # still needs a little more testing
     # to allow a random 25% failures
     fail = [0,1,2,3]
     if fail.sample == 1 or fail.sample == 2 or fail.sample == 3
-	
-		if reservation.save
 
-		  departureStation_id = params[:reservation][:departureStation_id].to_i
-		  arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
-		  time = Time.parse(params[:time])
-		  date = Date.parse(params[:reservation][:date])
+		    if reservation.save
 
-		  result = Array.new
+		      departureStation_id = params[:reservation][:departureStation_id].to_i
+		      arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
+		      time = Time.parse(params[:time])
+		      date = Date.parse(params[:reservation][:date])
 
-		  makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
-	  
-		  result << departureStation_id.to_i
+		      result = Array.new
 
-		  result.reverse!
+		      makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
+	      
+		      result << departureStation_id.to_i
 
-		  for i in 0..(result.count-2)
+		      result.reverse!
 
-			trip = getNextTrip(result[i], result[i+1], time)
+		      for i in 0..(result.count-2)
 
-			rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
-									  :arrivalStation_id => reservation.arrivalStation_id, :date => reservation.date)
+			      trip = getNextTrip(result[i], result[i+1], time)
+
+            if trip == nil
+              puts 'entra'
+              render :json => { :success => false }
+              break
+            end
+
+            time = getStationTime(trip, result[i])
+
+			      rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
+									        :arrivalStation_id => reservation.arrivalStation_id, :time => time.strftime('%H:%M'))
 			
-			rt.save
+			      rt.save
 
-		  end
+		      end
 
-		  render :json =>  { :success => true }
-		else
-		  render :json => { :success => false }
-		end
-    else
-      render :json => { :success => false }
-    end
+		      render :json =>  { :success => true }
+		    else
+		      render :json => { :success => false }
+		    end
+      else
+        render :json => { :success => false }
+      end
 
   end
 
