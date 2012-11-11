@@ -84,6 +84,13 @@ class Api::ReservationsController < Api::BaseController
     for i in 0..(result.count-2)
 
       trip = getNextTrip(result[i], result[i+1], time)
+
+      if trip == nil
+        puts 'entra'
+        render :json => { :success => false }
+        break
+      end
+
       time = getStationTime(trip, result[i])
 
       departure = Station.find(result[i]).name
@@ -119,14 +126,19 @@ class Api::ReservationsController < Api::BaseController
       tripDepartureOrder = LineStation.where(:station_id => trip.departureStation_id, :line_id => trip.line_id).first.order
       tripArrivalOrder = LineStation.where(:station_id => trip.arrivalStation_id, :line_id => trip.line_id).first.order
 
-      if (tripDepartureOrder <= departureOrder && tripArrivalOrder >= arrivalOrder)
+      if ((tripDepartureOrder <= tripArrivalOrder && departureOrder <= arrivalOrder)||
+           tripDepartureOrder >= tripArrivalOrder && departureOrder >= arrivalOrder)
 
+        puts "#{tripDepartureOrder} <= #{departureOrder}"
+        puts "#{tripArrivalOrder} >= #{arrivalOrder}"
         #actual_time = getStationTime(trip, departureStation_id)
         return trip
 
       end
  
     end
+
+    return nil
 
   end
 
@@ -205,7 +217,6 @@ class Api::ReservationsController < Api::BaseController
   private
   def getStationTime(trip, station_id)
 
-    puts trip.class
 
     departureOrder = LineStation.find_by_station_id(trip.departureStation_id).order
     arrivalOrder = LineStation.find_by_station_id(trip.arrivalStation_id).order
