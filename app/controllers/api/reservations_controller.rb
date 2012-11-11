@@ -3,22 +3,30 @@ class Api::ReservationsController < Api::BaseController
   # GET /reservations
   # GET /reservations.json
   def index
-  
+
     user = User.find_by_authentication_token(params[:token])
 
-    reservations = Reservation.where(:user_id => user.id, :canceled => false)
+    if user == nil
 
-    result = Array.new
-    reservations.each do |r|
+      render :json => []
 
-      departureStation = Station.find(r.departureStation_id).name
-      arrivalStation = Station.find(r.arrivalStation_id).name
+    else
 
-      result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation }
+      reservations = Reservation.where(:user_id => user.id, :canceled => false)
 
+      result = Array.new
+      reservations.each do |r|
+
+        departureStation = Station.find(r.departureStation_id).name
+        arrivalStation = Station.find(r.arrivalStation_id).name
+
+        result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation }
+
+      end
+
+      render :json => result
+    
     end
-
-    render :json => result
 
   end
 
