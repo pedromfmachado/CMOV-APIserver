@@ -21,6 +21,8 @@ CMOVApiserver::Application.routes.draw do
     resources :trips
     resources :reservations
 
+    match "get_trips" => "reservations#get_trips"
+
   end  
 
   match "demote/:id" => "users#demote"
