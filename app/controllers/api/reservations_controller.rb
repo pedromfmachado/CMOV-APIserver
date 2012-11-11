@@ -20,10 +20,53 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
+  def create
+
+        print "chega aqui\n"
+
+    reservation = Reservation.new(params[:reservation])
+    
+    if reservation.save
+
+      departureStation_id = params[:reservation][:departureStation_id].to_i
+      arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
+      time = Time.parse(params[:time])
+      date = Date.parse(params[:reservation][:date])
+
+      result = Array.new
+
+      makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
+  
+      result << departureStation_id.to_i
+
+      result.reverse!
+
+      for i in 0..(result.count-2)
+
+        trip = getNextTrip(result[i], result[i+1], time)
+
+        rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
+                                  :arrivalStation_id => reservation.arrivalStation_id, :date => reservation.date)
+        
+        rt.save
+
+      end
+
+      render :json =>  { :success => true }
+    else
+      render :json => { :success => false }
+    end
+
+    
+
+  end
+
   def get_trips
 
     departureStation_id = params[:departureStation_id].to_i
     arrivalStation_id = params[:arrivalStation_id].to_i
+    time = Time.parse(params[:time])
+    date = Date.parse(params[:date])
 
     result = Array.new
     trips_array = makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
@@ -33,13 +76,12 @@ class Api::ReservationsController < Api::BaseController
     result.reverse!
 
     trips = Array.new
-    actual_time = Time.now
     for i in 0..(result.count-2)
 
-      trip = getNextTrip(result[i], result[i+1], actual_time)
-      actual_time = getStationTime(trip, result[i])
+      trip = getNextTrip(result[i], result[i+1], time)
+      time = getStationTime(trip, result[i])
 
-      trips << { :trip => trip, :intersection => result[i], :time => actual_time }
+      trips << { :trip => trip, :intersection => result[i], :time => time }
 
     end
 

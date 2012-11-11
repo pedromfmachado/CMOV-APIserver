@@ -10,6 +10,21 @@
   <%= @reservation_trip.trip %>
 </p>
 
+<p>
+  <b>Departurestation:</b>
+  <%= @reservation_trip.departureStation %>
+</p>
+
+<p>
+  <b>Arrivalstation:</b>
+  <%= @reservation_trip.arrivalStation %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @reservation_trip.date %>
+</p>
+
 
 <%= link_to 'Edit', edit_reservation_trip_path(@reservation_trip) %> |
 <%= link_to 'Back', reservation_trips_path %>

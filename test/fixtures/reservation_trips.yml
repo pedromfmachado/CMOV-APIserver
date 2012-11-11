@@ -3,7 +3,13 @@
 one:
   reservation: 
   trip: 
+  departureStation: 
+  arrivalStation: 
+  date: 2012-11-11
 
 two:
   reservation: 
   trip: 
+  departureStation: 
+  arrivalStation: 
+  date: 2012-11-11

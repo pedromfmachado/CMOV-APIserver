@@ -4,6 +4,9 @@
   <tr>
     <th>Reservation</th>
     <th>Trip</th>
+    <th>Departurestation</th>
+    <th>Arrivalstation</th>
+    <th>Date</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +14,11 @@
 
 <% @reservation_trips.each do |reservation_trip| %>
   <tr>
-    <td><%= reservation_trip.reservation %></td>
-    <td><%= reservation_trip.trip %></td>
+    <td><%= reservation_trip.reservation_id %></td>
+    <td><%= reservation_trip.trip_id %></td>
+    <td><%= reservation_trip.departureStation_id %></td>
+    <td><%= reservation_trip.arrivalStation_id %></td>
+    <td><%= reservation_trip.date %></td>
     <td><%= link_to 'Show', reservation_trip %></td>
     <td><%= link_to 'Edit', edit_reservation_trip_path(reservation_trip) %></td>
     <td><%= link_to 'Destroy', reservation_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>

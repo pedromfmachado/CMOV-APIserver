@@ -19,9 +19,12 @@ CMOVApiserver::Application.routes.draw do
     resources :lines
     resources :stations
     resources :trips
-    resources :reservations
 
-    match "get_trips" => "reservations#get_trips"
+    get 'reservations' => 'reservations#index'
+    get 'reservations/show/:id' => 'reservations#show'
+    get 'reservations/get_trips'
+    post 'reservations/cancel/id'
+    post 'reservations' => 'reservations#create'
 
   end  
 
