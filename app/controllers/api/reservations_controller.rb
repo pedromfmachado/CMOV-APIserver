@@ -177,6 +177,8 @@ class Api::ReservationsController < Api::BaseController
       currentTime = currentTime + timeElapsed.hours
     end
 
+    return nil
+
   end
 
 end
