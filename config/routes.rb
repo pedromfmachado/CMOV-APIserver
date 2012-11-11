@@ -1,7 +1,5 @@
 CMOVApiserver::Application.routes.draw do
 
-
-
   get "welcome/index"
   
   devise_for :users
@@ -16,11 +14,15 @@ CMOVApiserver::Application.routes.draw do
   resources :reservation_trips
 
   namespace :api do
+
     devise_for :users
     resources :lines
     resources :stations
     resources :trips
     resources :reservations
+
+    match "reservations/get_trips/:departureStation_id/:arrivalStation_id" => "reservations#get_trips"
+
   end  
 
   match "demote/:id" => "users#demote"

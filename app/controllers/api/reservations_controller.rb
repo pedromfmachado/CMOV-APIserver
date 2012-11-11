@@ -20,12 +20,15 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
-  def create
+  def get_trips
+
+    departureStation_id = params[:departureStation_id].to_i
+    arrivalStation_id = params[:arrivalStation_id].to_i
 
     result = Array.new
-    trip = makeReservations(params[:departureStation_id].to_i, params[:arrivalStation_id].to_i, Array.new, result)
+    trips_array = makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
 
-    result << params[:departureStation_id].to_i
+    result <<  departureStation_id.to_i
 
     result.reverse!
 
@@ -33,8 +36,10 @@ class Api::ReservationsController < Api::BaseController
     actual_time = Time.now
     for i in 0..(result.count-2)
 
-      trips << { :trip => getNextTrip(result[i], result[i+1], actual_time), :intersection => result[i],
-                :time => actual_time }
+      trip = getNextTrip(result[i], result[i+1], actual_time)
+      actual_time = getStationTime(trip, departureStation_id)
+
+      trips << { :trip => trip, :intersection => result[i], :time => actual_time }
 
     end
 
@@ -68,7 +73,7 @@ class Api::ReservationsController < Api::BaseController
 
       if (tripDepartureOrder <= departureOrder && tripArrivalOrder >= arrivalOrder)
 
-        actual_time = getStationTime(trip, departureStation_id)
+        #actual_time = getStationTime(trip, departureStation_id)
         return trip
 
       end
@@ -143,6 +148,8 @@ class Api::ReservationsController < Api::BaseController
 
   private
   def getStationTime(trip, station_id)
+
+    puts trip.class
 
     departureOrder = LineStation.find_by_station_id(trip.departureStation_id).order
     arrivalOrder = LineStation.find_by_station_id(trip.arrivalStation_id).order
