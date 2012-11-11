@@ -17,10 +17,19 @@ class Api::ReservationsController < Api::BaseController
       result = Array.new
       reservations.each do |r|
 
+        reservationTrips = Array.new
+        ReservationTrip.where(:reservation_id => r.id).each do |rt|
+
+          departureStation = Station.find(r.departureStation_id).name
+          arrivalStation = Station.find(r.arrivalStation_id).name
+          reservationTrips << { :reservation_trip => rt, :departure => departureStation, :arrival => arrivalStation }            
+
+        end
+
         departureStation = Station.find(r.departureStation_id).name
         arrivalStation = Station.find(r.arrivalStation_id).name
 
-        result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation }
+        result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation, :reservation_trips => reservationTrips }
 
       end
 
@@ -143,9 +152,8 @@ class Api::ReservationsController < Api::BaseController
       trip = getNextTrip(result[i], result[i+1], time)
 
       if trip == nil
-        puts 'entra'
-        render :json => { :success => false }
-        break
+        render :json => { :success => false, :errors => ["Trip" => "is not valid"] }
+        return
       end
 
       time = getStationTime(trip, result[i])
