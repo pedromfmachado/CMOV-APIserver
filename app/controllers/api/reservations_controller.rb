@@ -3,8 +3,20 @@ class Api::ReservationsController < Api::BaseController
   # GET /reservations
   # GET /reservations.json
   def index
+  
+    user = User.find_by_authentication_token(params[:authentication_token])
 
-    reservations = Reservation.all    
+    reservations = Reservation.find_all_by_user_id(user.id).find_all_by_canceled(false)
+
+    result = Array.new
+    reservations.each do |r|
+
+      departureStation = Station.find(r.departureStation_id).name
+      arrivalStation = Station.find(r.arrivalStation_id).name
+
+      result << { :departure => departureStation, :arrival => arrivalStation, :date => r.date }
+
+    end
 
     render :json => reservations
 
@@ -14,9 +26,16 @@ class Api::ReservationsController < Api::BaseController
   # GET /reservations/1.json
   def show
 
+    user = User.find_by_authentication_token(params[:authentication_token])
     reservation = Reservation.find(params[:id])
+    
+    if user.id == reservation.user_id
+      render :json => { reservation
+    else
+      render :json { :success => false }
+    end
 
-    render :json => reservation
+    
 
   end
 
@@ -129,8 +148,6 @@ class Api::ReservationsController < Api::BaseController
       if ((tripDepartureOrder <= tripArrivalOrder && departureOrder <= arrivalOrder)||
            tripDepartureOrder >= tripArrivalOrder && departureOrder >= arrivalOrder)
 
-        puts "#{tripDepartureOrder} <= #{departureOrder}"
-        puts "#{tripArrivalOrder} >= #{arrivalOrder}"
         #actual_time = getStationTime(trip, departureStation_id)
         return trip
 
