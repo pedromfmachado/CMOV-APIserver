@@ -23,7 +23,7 @@ CMOVApiserver::Application.routes.draw do
     get 'reservations' => 'reservations#index'
     get 'reservations/show/:id' => 'reservations#show'
     get 'reservations/get_trips'
-    post 'reservations/cancel/id'
+    post 'reservations/cancel' => 'reservations#cancel'
     post 'reservations' => 'reservations#create'
 
   end  

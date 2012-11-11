@@ -3,7 +3,7 @@ class Api::StationsController < Api::BaseController
   # GET /stations
   # GET /stations.json
   def index
-    @stations = Station.all
+    @stations = Station.find(:all, :order => 'name ASC')
 
     render :json => @stations
   end

@@ -1,7 +1,7 @@
 class Api::ReservationsController < Api::BaseController
 
-  # GET /trips
-  # GET /trips.json
+  # GET /reservations
+  # GET /reservations.json
   def index
 
     reservations = Reservation.all    
@@ -10,8 +10,8 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
-  # GET /trips/1
-  # GET /trips/1.json
+  # GET /reservations/1
+  # GET /reservations/1.json
   def show
 
     reservation = Reservation.find(params[:id])
@@ -20,9 +20,16 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
-  def create
+  def cancel
 
-        print "chega aqui\n"
+    @reservation = Reservation.find(params[:id])
+    @reservation.update_attributes(:canceled => true)
+
+    render :json => { :success => true }
+
+  end
+
+  def create
 
     reservation = Reservation.new(params[:reservation])
     
@@ -56,8 +63,6 @@ class Api::ReservationsController < Api::BaseController
     else
       render :json => { :success => false }
     end
-
-    
 
   end
 
@@ -100,10 +105,8 @@ class Api::ReservationsController < Api::BaseController
 
     line_id = (departureLines & arrivalLines).first
 
-
     departureOrder = LineStation.where(:station_id => departureStation_id, :line_id => line_id).first.order
     arrivalOrder = LineStation.where(:station_id => arrivalStation_id, :line_id => line_id).first.order
-
 
     trips = Trip.where('line_id = ? AND "beginTime" >= ?', line_id, actual_time).order('"beginTime" ASC')
 
@@ -225,5 +228,6 @@ class Api::ReservationsController < Api::BaseController
     return nil
 
   end
+
 
 end
