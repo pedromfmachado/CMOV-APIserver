@@ -11,11 +11,11 @@ class Api::LinesController < Api::BaseController
   # GET /lines/1.json
   def show
     @line = Line.find(params[:id])
-    @lineStations = LineStation.where( :Line_id => params[:id])
+    @lineStations = LineStation.where( :line_id => params[:id])
     
     @stations = Array.new
     @lineStations.each do |ls|
-      @stations << Station.find(ls.Station_id)
+      @stations << Station.find(ls.station_id)
     end
     
     render :json => { :line => @line, :stations => @stations }

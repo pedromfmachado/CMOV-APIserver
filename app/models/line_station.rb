@@ -1,5 +1,5 @@
 class LineStation < ActiveRecord::Base
-  belongs_to :Line
-  belongs_to :Station
-  attr_accessible :distance, :order, :Line_id, :Station_id
+  belongs_to :line
+  belongs_to :station
+  attr_accessible :distance, :order, :line_id, :station_id
 end

@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(:version => 20121110163005) do
   create_table "line_stations", :force => true do |t|
     t.integer  "order"
     t.integer  "distance"
-    t.integer  "Line_id"
-    t.integer  "Station_id"
+    t.integer  "line_id"
+    t.integer  "station_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "line_stations", ["Line_id"], :name => "index_line_stations_on_Line_id"
-  add_index "line_stations", ["Station_id"], :name => "index_line_stations_on_Station_id"
+  add_index "line_stations", ["line_id"], :name => "index_line_stations_on_line_id"
+  add_index "line_stations", ["station_id"], :name => "index_line_stations_on_station_id"
 
   create_table "lines", :force => true do |t|
     t.string   "name"
@@ -43,18 +43,18 @@ ActiveRecord::Schema.define(:version => 20121110163005) do
 
   create_table "reservations", :force => true do |t|
     t.string   "uuid"
-    t.integer  "User_id"
-    t.integer  "ArrivalStation_id"
-    t.integer  "DepartureStation_id"
+    t.integer  "user_id"
+    t.integer  "arrivalStation_id"
+    t.integer  "departureStation_id"
     t.boolean  "canceled",            :default => false, :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.date     "date"
   end
 
-  add_index "reservations", ["ArrivalStation_id"], :name => "index_reservations_on_ArrivalStation_id"
-  add_index "reservations", ["DepartureStation_id"], :name => "index_reservations_on_DepartureStation_id"
-  add_index "reservations", ["User_id"], :name => "index_reservations_on_User_id"
+  add_index "reservations", ["arrivalStation_id"], :name => "index_reservations_on_arrivalStation_id"
+  add_index "reservations", ["departureStation_id"], :name => "index_reservations_on_departureStation_id"
+  add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
 
   create_table "stations", :force => true do |t|
     t.string   "name"
@@ -78,20 +78,20 @@ ActiveRecord::Schema.define(:version => 20121110163005) do
 
   create_table "trips", :force => true do |t|
     t.datetime "beginTime"
-    t.integer  "TripType_id"
-    t.integer  "Train_id"
-    t.integer  "Line_id"
-    t.integer  "ArrivalStation_id"
-    t.integer  "DepartureStation_id"
+    t.integer  "tripType_id"
+    t.integer  "train_id"
+    t.integer  "line_id"
+    t.integer  "arrivalStation_id"
+    t.integer  "departureStation_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
 
-  add_index "trips", ["ArrivalStation_id"], :name => "index_trips_on_ArrivalStation_id"
-  add_index "trips", ["DepartureStation_id"], :name => "index_trips_on_DepartureStation_id"
-  add_index "trips", ["Line_id"], :name => "index_trips_on_Line_id"
-  add_index "trips", ["Train_id"], :name => "index_trips_on_Train_id"
-  add_index "trips", ["TripType_id"], :name => "index_trips_on_TripType_id"
+  add_index "trips", ["arrivalStation_id"], :name => "index_trips_on_arrivalStation_id"
+  add_index "trips", ["departureStation_id"], :name => "index_trips_on_departureStation_id"
+  add_index "trips", ["line_id"], :name => "index_trips_on_line_id"
+  add_index "trips", ["train_id"], :name => "index_trips_on_train_id"
+  add_index "trips", ["tripType_id"], :name => "index_trips_on_tripType_id"
 
   create_table "users", :force => true do |t|
     t.string   "name",                   :default => "",      :null => false

@@ -45,28 +45,26 @@ class Api::ReservationsController < Api::BaseController
   private
   def getNextTrip(departureStation_id, arrivalStation_id, actual_time)
 
-    departureLines = LineStation.where(:Station_id => departureStation_id).map { |x| x.Line_id }
-    arrivalLines = LineStation.where(:Station_id => arrivalStation_id).map { |x| x.Line_id }
+    departureLines = LineStation.where(:station_id => departureStation_id).map { |x| x.line_id }
+    arrivalLines = LineStation.where(:station_id => arrivalStation_id).map { |x| x.line_id }
 
     line_id = (departureLines & arrivalLines).first
 
-    puts "line: "
-    puts line_id
 
-    departureOrder = LineStation.where(:Station_id => departureStation_id, :Line_id => line_id).first.order
-    arrivalOrder = LineStation.where(:Station_id => arrivalStation_id, :Line_id => line_id).first.order
+    departureOrder = LineStation.where(:station_id => departureStation_id, :line_id => line_id).first.order
+    arrivalOrder = LineStation.where(:station_id => arrivalStation_id, :line_id => line_id).first.order
 
 
-    trips = Trip.where('Line_id = ? AND beginTime >= ?', line_id, actual_time).order('beginTime ASC')
+    trips = Trip.where('line_id = ? AND beginTime >= ?', line_id, actual_time).order('beginTime ASC')
 
     if trips.empty?
-      trips = Trip.where('Line_id = ? AND beginTime >= ?', line_id, Time.gm(actual_time.year, actual_time.month, actual_time.day)).order('beginTime ASC')
+      trips = Trip.where('line_id = ? AND beginTime >= ?', line_id, Time.gm(actual_time.year, actual_time.month, actual_time.day)).order('beginTime ASC')
     end
 
     trips.each do |trip|
 
-      tripDepartureOrder = LineStation.where(:Station_id => trip.DepartureStation_id, :Line_id => trip.Line_id).first.order
-      tripArrivalOrder = LineStation.where(:Station_id => trip.ArrivalStation_id, :Line_id => trip.Line_id).first.order
+      tripDepartureOrder = LineStation.where(:station_id => trip.departureStation_id, :line_id => trip.line_id).first.order
+      tripArrivalOrder = LineStation.where(:station_id => trip.arrivalStation_id, :line_id => trip.line_id).first.order
 
       if (tripDepartureOrder <= departureOrder && tripArrivalOrder >= arrivalOrder)
 
@@ -82,17 +80,17 @@ class Api::ReservationsController < Api::BaseController
   private 
   def getIntersections(line_id)
 
-    stations = LineStation.where(:Line_id => line_id)
+    stations = LineStation.where(:line_id => line_id)
 
     intersections = Array.new
 
     stations.each do |station|
 
-      linesPerStation = LineStation.where(:Station_id => station.Station_id).length
+      linesPerStation = LineStation.where(:station_id => station.station_id).length
 
       if linesPerStation > 1
 
-        intersections << station.Station_id
+        intersections << station.station_id
 
       end
 
@@ -105,11 +103,11 @@ class Api::ReservationsController < Api::BaseController
   private
   def makeReservations(departureStation_id, arrivalStation_id, visited, result)
 
-    departure = LineStation.where(:Station_id => departureStation_id)
+    departure = LineStation.where(:station_id => departureStation_id)
 
     departure.each do |ls|
 
-      arrival = LineStation.where(:Station_id => arrivalStation_id, :Line_id => ls.Line_id)
+      arrival = LineStation.where(:station_id => arrivalStation_id, :line_id => ls.line_id)
 
       if !arrival.blank?
 
@@ -117,7 +115,7 @@ class Api::ReservationsController < Api::BaseController
 
       else
 
-        intersections = getIntersections(ls.Line_id)
+        intersections = getIntersections(ls.line_id)
         
         intersections.each do |i|
           
@@ -146,11 +144,11 @@ class Api::ReservationsController < Api::BaseController
   private
   def getStationTime(trip, station_id)
 
-    departureOrder = LineStation.find_by_Station_id(trip.DepartureStation_id).order
-    arrivalOrder = LineStation.find_by_Station_id(trip.ArrivalStation_id).order
+    departureOrder = LineStation.find_by_station_id(trip.departureStation_id).order
+    arrivalOrder = LineStation.find_by_station_id(trip.arrivalStation_id).order
 
     lineStations = LineStation.where(:order => departureOrder..arrivalOrder)
-    lineStations = lineStations.where(:Line_id => trip.Line_id)
+    lineStations = lineStations.where(:line_id => trip.line_id)
     if departureOrder < arrivalOrder
       lineStations.order('order ASC')
     else
@@ -161,10 +159,10 @@ class Api::ReservationsController < Api::BaseController
     currentTime = trip.beginTime
     lineStations.each do |ls|
       
-      station = Station.find(ls.Station_id)
-      train = Train.find(trip.Train_id)
+      station = Station.find(ls.station_id)
+      train = Train.find(trip.train_id)
 
-      if station_id == ls.Station_id
+      if station_id == ls.station_id
         return currentTime
       end
 

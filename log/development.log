@@ -35195,3 +35195,1390 @@ Connecting to database specified by database.yml
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "reservations" ("ArrivalStation_id", "DepartureStation_id", "User_id", "canceled", "created_at", "date", "updated_at", "uuid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["ArrivalStation_id", 3], ["DepartureStation_id", 2], ["User_id", nil], ["canceled", false], ["created_at", Sat, 10 Nov 2012 23:28:56 UTC +00:00], ["date", nil], ["updated_at", Sat, 10 Nov 2012 23:28:56 UTC +00:00], ["uuid", nil]]
   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (120.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20121105000051)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (52.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105000051')[0m
+  [1m[35m (1.9ms)[0m  commit transaction
+Migrating to CreateLines (20121105105705)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105105705')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateStations (20121105105742)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105105742')[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+Migrating to CreateTripTypes (20121105105910)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105105910')[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateTrains (20121105110012)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105110012')[0m
+  [1m[35m (1.9ms)[0m  commit transaction
+Migrating to CreateLineStations (20121105110106)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("line_stations")[0m
+  [1m[35m (0.3ms)[0m  CREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("line_stations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_line_stations_on_line_id')
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121105110106')
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateReservations (20121105110235)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'false' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_user_id')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_arrivalStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_reservations_on_user_id')[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105110235')[0m
+  [1m[35m (2.3ms)[0m  commit transaction
+Migrating to CreateTrips (20121105110403)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_tripType_id')
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_train_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_tripType_id')
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_tripType_id')[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_tripType_id')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121105110403')[0m
+  [1m[35m (8.7ms)[0m  commit transaction
+Migrating to AddDeviseColumnsToUser (20121106160558)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "authentication_token" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121106160558')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to AddDateToReservation (20121109181639)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "reservations" ADD "date" date
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121109181639')[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+Migrating to CreateReservationTrips (20121110163005)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121110163005')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_station_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_line_stations_on_line_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("lines")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservation_trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservation_trips_on_trip_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_user_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("stations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trains")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trip_types")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_tripType_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+Connecting to database specified by database.yml
+  [1m[36m (3.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (202.3ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.7ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "reservations"
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (7.0ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (8.6ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (7.4ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (1.6ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (2.0ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.7ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (4.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (2.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:02:54 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (3.8ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "reservations"
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.8ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (8.1ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (11.8ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (2.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:04:00 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (21.2ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (2.1ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "reservations"
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (1.7ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.9ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (25.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (26.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:04:46 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (2.6ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (1.4ms)[0m  DROP TABLE "reservations"
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (8.9ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (2.6ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (2.4ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (6.4ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (125.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (72.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:05:27 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.6ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (38.4ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "reservations"
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (2.1ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (6.4ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.3ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (5.3ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (3.8ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.3ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (2.0ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (5.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (5.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 1], ["station_id", 1], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 2], ["station_id", 2], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 3], ["station_id", 3], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 5], ["station_id", 5], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 1], ["station_id", 6], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 2], ["station_id", 7], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 3], ["station_id", 8], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 5], ["station_id", 9], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 1], ["station_id", 10], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 2], ["station_id", 11], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 3], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 4], ["station_id", 12], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (6.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 5], ["station_id", 13], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (141.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["maxCapacity", 10], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["maxCapacity", 5], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["maxCapacity", 20], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["maxCapacity", 2], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'joao@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jaime@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'filipe@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'fernando@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "local"], ["price", 2.5], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00], ["name", "regional"], ["price", 5.0], ["updated_at", Sun, 11 Nov 2012 00:06:44 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Connecting to database specified by database.yml
+  [1m[36m (2.8ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (27.2ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "reservations"
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (8.1ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (2.7ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (102.1ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (36.8ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (9.6ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (2.2ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (8.3ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (2.2ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 1], ["station_id", 1], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 2], ["station_id", 2], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 3], ["station_id", 3], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 5], ["station_id", 5], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 1], ["station_id", 6], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 2], ["station_id", 7], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 3], ["station_id", 8], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 5], ["station_id", 9], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 1], ["station_id", 10], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 2], ["station_id", 11], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 3], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 4], ["station_id", 12], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 5], ["station_id", 13], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["maxCapacity", 10], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["maxCapacity", 5], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["maxCapacity", 20], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["maxCapacity", 2], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'joao@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jaime@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'filipe@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'fernando@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "local"], ["price", 2.5], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00], ["name", "regional"], ["price", 5.0], ["updated_at", Sun, 11 Nov 2012 00:08:25 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Connecting to database specified by database.yml
+  [1m[36m (2.7ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "reservations"
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (2.4ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (8.6ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (4.2ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (31.4ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (2.1ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (4.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.4ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (155.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 1], ["station_id", 1], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 2], ["station_id", 2], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 3], ["station_id", 3], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 5], ["station_id", 5], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 1], ["station_id", 6], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 2], ["station_id", 7], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 3], ["station_id", 8], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 5], ["station_id", 9], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 1], ["station_id", 10], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 2], ["station_id", 11], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 3], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 4], ["station_id", 12], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 5], ["station_id", 13], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["maxCapacity", 10], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["maxCapacity", 5], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["maxCapacity", 20], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["maxCapacity", 2], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'joao@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jaime@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'filipe@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'fernando@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "local"], ["price", 2.5], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["name", "regional"], ["price", 5.0], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 5], ["beginTime", Sun, 11 Nov 2012 12:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["departureStation_id", 1], ["line_id", 1], ["train_id", 4], ["tripType_id", 1], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["arrivalStation_id", 5], ["beginTime", Sun, 11 Nov 2012 15:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["departureStation_id", 1], ["line_id", 1], ["train_id", 4], ["tripType_id", 1], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (45.1ms)[0m  INSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 5], ["beginTime", Sun, 11 Nov 2012 18:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00], ["departureStation_id", 1], ["line_id", 1], ["train_id", 4], ["tripType_id", 1], ["updated_at", Sun, 11 Nov 2012 00:08:47 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["arrivalStation_id", 9], ["beginTime", Sun, 11 Nov 2012 12:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:08:48 UTC +00:00], ["departureStation_id", 6], ["line_id", 2], ["train_id", 3], ["tripType_id", 2], ["updated_at", Sun, 11 Nov 2012 00:08:48 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 9], ["beginTime", Sun, 11 Nov 2012 15:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:08:48 UTC +00:00], ["departureStation_id", 6], ["line_id", 2], ["train_id", 3], ["tripType_id", 2], ["updated_at", Sun, 11 Nov 2012 00:08:48 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["arrivalStation_id", 9], ["beginTime", Sun, 11 Nov 2012 18:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:08:48 UTC +00:00], ["departureStation_id", 6], ["line_id", 2], ["train_id", 3], ["tripType_id", 2], ["updated_at", Sun, 11 Nov 2012 00:08:48 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Connecting to database specified by database.yml
+  [1m[36m (6.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.9ms)[0m  DROP TABLE "line_stations"
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "line_stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order" integer, "distance" integer, "line_id" integer, "station_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (3.7ms)[0m  [1mCREATE INDEX "index_line_stations_on_line_id" ON "line_stations" ("line_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("line_stations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_line_stations_on_line_id')[0m
+  [1m[35m (1.6ms)[0m  CREATE INDEX "index_line_stations_on_station_id" ON "line_stations" ("station_id")
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "lines"[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "reservation_trips"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "reservation_trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "reservation_id" integer, "trip_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reservation_trips_on_reservation_id" ON "reservation_trips" ("reservation_id")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("reservation_trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservation_trips_on_reservation_id')
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_reservation_trips_on_trip_id" ON "reservation_trips" ("trip_id")[0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "reservations"
+  [1m[36m (120.3ms)[0m  [1mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar(255), "user_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "canceled" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (42.6ms)[0m  [1mCREATE INDEX "index_reservations_on_arrivalStation_id" ON "reservations" ("arrivalStation_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("reservations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.6ms)[0m  CREATE INDEX "index_reservations_on_departureStation_id" ON "reservations" ("departureStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("reservations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_reservations_on_departureStation_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_reservations_on_arrivalStation_id')[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "stations"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "stations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "trains"[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "trains" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "maxCapacity" integer, "velocity" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "trip_types"[0m
+  [1m[35m (8.5ms)[0m  CREATE TABLE "trip_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (4.3ms)[0m  [1mDROP TABLE "trips"[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "beginTime" datetime, "tripType_id" integer, "train_id" integer, "line_id" integer, "arrivalStation_id" integer, "departureStation_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_trips_on_arrivalStation_id" ON "trips" ("arrivalStation_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (2.0ms)[0m  [1mCREATE INDEX "index_trips_on_departureStation_id" ON "trips" ("departureStation_id")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_departureStation_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_arrivalStation_id')
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_trips_on_line_id" ON "trips" ("line_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("trips")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_trips_on_train_id" ON "trips" ("train_id")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("trips")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_trips_on_train_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_trips_on_line_id')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_trips_on_departureStation_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_trips_on_arrivalStation_id')[0m
+  [1m[35m (7.5ms)[0m  CREATE INDEX "index_trips_on_tripType_id" ON "trips" ("tripType_id")
+  [1m[36m (3.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "address" varchar(255) DEFAULT '' NOT NULL, "role" varchar(255) DEFAULT 'guest' NOT NULL, "cctype" varchar(255) DEFAULT '' NOT NULL, "ccnumber" varchar(255) DEFAULT '' NOT NULL, "ccvalidity" date NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "authentication_token" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Hospital de Sao Joao"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "IPO"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Salgueiros"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Trindade"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Joao de Deus"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Povoa de Varzim"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Vila do Conde"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Mindelo"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Campanha"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "ISMAI"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Senhora da Hora"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Campo 24 de Agosto"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stations" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Estadio do Dragao"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Amarela"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Vermelha"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lines" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "Azul"], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 1], ["station_id", 1], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 2], ["station_id", 2], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 3], ["station_id", 3], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 1], ["order", 5], ["station_id", 5], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 1], ["station_id", 6], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 2], ["station_id", 7], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 3], ["station_id", 8], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 4], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 2], ["order", 5], ["station_id", 9], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 1], ["station_id", 10], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 2], ["station_id", 11], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 3], ["station_id", 4], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 4], ["station_id", 12], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_stations" ("created_at", "distance", "line_id", "order", "station_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["distance", 5], ["line_id", 3], ["order", 5], ["station_id", 13], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["maxCapacity", 10], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["maxCapacity", 5], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["maxCapacity", 20], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["velocity", 60.0]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trains" ("created_at", "maxCapacity", "updated_at", "velocity") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["maxCapacity", 2], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["velocity", 60.0]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'joao@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jaime@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'filipe@h.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'fernando@h.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "local"], ["price", 2.5], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trip_types" ("created_at", "name", "price", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00], ["name", "regional"], ["price", 5.0], ["updated_at", Sun, 11 Nov 2012 00:09:14 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 5], ["beginTime", Sun, 11 Nov 2012 12:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["departureStation_id", 1], ["line_id", 1], ["train_id", 4], ["tripType_id", 1], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["arrivalStation_id", 5], ["beginTime", Sun, 11 Nov 2012 15:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["departureStation_id", 1], ["line_id", 1], ["train_id", 4], ["tripType_id", 1], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 5], ["beginTime", Sun, 11 Nov 2012 18:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["departureStation_id", 1], ["line_id", 1], ["train_id", 4], ["tripType_id", 1], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["arrivalStation_id", 9], ["beginTime", Sun, 11 Nov 2012 12:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["departureStation_id", 6], ["line_id", 2], ["train_id", 3], ["tripType_id", 2], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 9], ["beginTime", Sun, 11 Nov 2012 15:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["departureStation_id", 6], ["line_id", 2], ["train_id", 3], ["tripType_id", 2], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "trips" ("arrivalStation_id", "beginTime", "created_at", "departureStation_id", "line_id", "train_id", "tripType_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["arrivalStation_id", 9], ["beginTime", Sun, 11 Nov 2012 18:00:00 UTC +00:00], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["departureStation_id", 6], ["line_id", 2], ["train_id", 3], ["tripType_id", 2], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "reservations" ("arrivalStation_id", "canceled", "created_at", "date", "departureStation_id", "updated_at", "user_id", "uuid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 2], ["canceled", false], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["date", nil], ["departureStation_id", 1], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["user_id", nil], ["uuid", nil]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "reservations" ("arrivalStation_id", "canceled", "created_at", "date", "departureStation_id", "updated_at", "user_id", "uuid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["arrivalStation_id", 2], ["canceled", false], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["date", nil], ["departureStation_id", 1], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["user_id", nil], ["uuid", nil]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "reservations" ("arrivalStation_id", "canceled", "created_at", "date", "departureStation_id", "updated_at", "user_id", "uuid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 3], ["canceled", false], ["created_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["date", nil], ["departureStation_id", 2], ["updated_at", Sun, 11 Nov 2012 00:09:15 UTC +00:00], ["user_id", nil], ["uuid", nil]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m

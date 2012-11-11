@@ -10,8 +10,8 @@ class Api::TripsController < Api::BaseController
 
     Trip.all.each do |trip|
       trips << { :id => trip.id, :time => trip.beginTime.strftime('%H:%M'),
-                 :departure_station => Station.find(trip.DepartureStation_id).name,
-                 :arrival_station => Station.find(trip.ArrivalStation_id).name }
+                 :departure_station => Station.find(trip.departureStation_id).name,
+                 :arrival_station => Station.find(trip.arrivalStation_id).name }
     end
     
     render :json => trips
@@ -24,11 +24,11 @@ class Api::TripsController < Api::BaseController
 
     trip = Trip.find(params[:id])
 
-    departureOrder = LineStation.find_by_Station_id(trip.DepartureStation_id).order
-    arrivalOrder = LineStation.find_by_Station_id(trip.ArrivalStation_id).order
+    departureOrder = LineStation.find_by_station_id(trip.departureStation_id).order
+    arrivalOrder = LineStation.find_by_station_id(trip.arrivalStation_id).order
 
     lineStations = LineStation.where(:order => departureOrder..arrivalOrder)
-    lineStations = lineStations.where(:Line_id => trip.Line_id)
+    lineStations = lineStations.where(:line_id => trip.line_id)
     if departureOrder < arrivalOrder
       lineStations.order('order ASC')
     else
@@ -39,8 +39,8 @@ class Api::TripsController < Api::BaseController
     currentTime = trip.beginTime
     lineStations.each do |ls|
       
-      station = Station.find(ls.Station_id)
-      train = Train.find(trip.Train_id)
+      station = Station.find(ls.station_id)
+      train = Train.find(trip.train_id)
 
       times << { :station => station, :time => currentTime.strftime('%H:%M') }
 

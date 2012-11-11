@@ -16,7 +16,7 @@ class Api::StationsController < Api::BaseController
     
     @lines = Array.new
     @lineStations.each do |ls|
-      @lines << Line.find(ls.Line_id)
+      @lines << Line.find(ls.line_id)
     end
 
     render :json => { :station => @station, :lines => @lines }

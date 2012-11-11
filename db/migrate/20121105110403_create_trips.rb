@@ -2,18 +2,18 @@ class CreateTrips < ActiveRecord::Migration
   def change
     create_table :trips do |t|
       t.datetime :beginTime
-      t.references :TripType
-      t.references :Train
-      t.references :Line
-      t.references :ArrivalStation
-      t.references :DepartureStation
+      t.references :tripType
+      t.references :train
+      t.references :line
+      t.references :arrivalStation
+      t.references :departureStation
 
       t.timestamps
     end
-    add_index :trips, :TripType_id
-    add_index :trips, :Train_id
-    add_index :trips, :Line_id
-    add_index :trips, :ArrivalStation_id
-    add_index :trips, :DepartureStation_id
+    add_index :trips, :tripType_id
+    add_index :trips, :train_id
+    add_index :trips, :line_id
+    add_index :trips, :arrivalStation_id
+    add_index :trips, :departureStation_id
   end
 end

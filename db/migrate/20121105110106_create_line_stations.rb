@@ -3,12 +3,12 @@ class CreateLineStations < ActiveRecord::Migration
     create_table :line_stations do |t|
       t.integer :order
       t.integer :distance
-      t.references :Line
-      t.references :Station
+      t.references :line
+      t.references :station
 
       t.timestamps
     end
-    add_index :line_stations, :Line_id
-    add_index :line_stations, :Station_id
+    add_index :line_stations, :line_id
+    add_index :line_stations, :station_id
   end
 end
