@@ -93,7 +93,7 @@ class Api::ReservationsController < Api::BaseController
 
     end
 
-    render :json =>  { :trips => trips }
+    render :json =>  trips
 
   end
 
