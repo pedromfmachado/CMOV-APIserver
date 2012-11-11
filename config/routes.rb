@@ -19,9 +19,7 @@ CMOVApiserver::Application.routes.draw do
     resources :lines
     resources :stations
     resources :trips
-
-    get 'reservations' => 'reservations#index'    
-    post 'reservations' => 'reservations#create'
+    resources :reservations, :only =>[:index, :create]
 
     get 'reservations/show/:id' => 'reservations#show'
     get 'reservations/get_trips'

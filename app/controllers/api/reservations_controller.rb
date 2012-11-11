@@ -61,10 +61,12 @@ class Api::ReservationsController < Api::BaseController
 
   def create
 
-    user = User.find_by_authentication_token[:token]
-    if user == nil || params[:reservation][:user_id] != user.id
+    user = User.find_by_authentication_token(params[:token])
+    puts user.id
+    puts params[:reservation][:user_id]
+    if user == nil || params[:reservation][:user_id] != user.id.to_s
     
-      render :json => { :sucess => false }
+      render :json => { :sucess => false, :errors => ["User" => "User is not valid"] }
     
     else
    
@@ -95,7 +97,7 @@ class Api::ReservationsController < Api::BaseController
 			        trip = getNextTrip(result[i], result[i+1], time)
 
               if trip == nil
-                render :json => { :success => false }
+                render :json => { :success => false, :errors => ["Trip" => "Trip is not valid"]}
                 break
               end
 
