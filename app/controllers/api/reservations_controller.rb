@@ -55,10 +55,10 @@ class Api::ReservationsController < Api::BaseController
     arrivalOrder = LineStation.where(:station_id => arrivalStation_id, :line_id => line_id).first.order
 
 
-    trips = Trip.where('line_id = ? AND \"beginTime\" >= ?', line_id, actual_time).order('beginTime ASC')
+    trips = Trip.where('line_id = ? AND "beginTime" >= ?', line_id, actual_time).order('beginTime ASC')
 
     if trips.empty?
-      trips = Trip.where('line_id = ? AND \"beginTime\" >= ?', line_id, Time.gm(actual_time.year, actual_time.month, actual_time.day)).order('beginTime ASC')
+      trips = Trip.where('line_id = ? AND "beginTime" >= ?', line_id, Time.gm(actual_time.year, actual_time.month, actual_time.day)).order('beginTime ASC')
     end
 
     trips.each do |trip|
