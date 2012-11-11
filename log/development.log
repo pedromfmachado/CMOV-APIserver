@@ -39972,3 +39972,29 @@ Connecting to database specified by database.yml
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.0ms)[0m  INSERT INTO "reservations" ("arrivalStation_id", "canceled", "created_at", "date", "departureStation_id", "updated_at", "user_id", "uuid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["arrivalStation_id", 16], ["canceled", false], ["created_at", Sun, 11 Nov 2012 04:07:06 UTC +00:00], ["date", nil], ["departureStation_id", 15], ["updated_at", Sun, 11 Nov 2012 04:07:06 UTC +00:00], ["user_id", nil], ["uuid", nil]]
   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/reservations" for 127.0.0.1 at 2012-11-11 04:08:31 +0000
+Processing by ReservationsController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mReservation Load (0.0ms)[0m  [1mSELECT "reservations".* FROM "reservations" [0m
+  Rendered reservations/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 60ms
+
+ActionView::Template::Error (undefined method `User' for #<Reservation:0xa476f30>):
+    15: <% @reservations.each do |reservation| %>
+    16:   <tr>
+    17:     <td><%= reservation.uuid %></td>
+    18:     <td><%= reservation.User %></td>
+    19:     <td><%= reservation.Trip %></td>
+    20:     <td><%= reservation.ArrivalStation %></td>
+    21:     <td><%= reservation.DepartureStation %></td>
+  app/views/reservations/index.html.erb:18:in `block in _app_views_reservations_index_html_erb___673514661_85347630'
+  app/views/reservations/index.html.erb:15:in `each'
+  app/views/reservations/index.html.erb:15:in `_app_views_reservations_index_html_erb___673514661_85347630'
+  app/controllers/reservations_controller.rb:9:in `index'
+
+
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered /home/everyone/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.0ms)

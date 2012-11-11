@@ -81,7 +81,10 @@ class Api::ReservationsController < Api::BaseController
       trip = getNextTrip(result[i], result[i+1], time)
       time = getStationTime(trip, result[i])
 
-      trips << { :trip => trip, :intersection => result[i], :time => time }
+      departure = Station.find(result[i]).name
+      arrival = Station.find(result[i+1]).name
+
+      trips << { :trip => trip, :departure => departure, :arrival => arrival, :time => time }
 
     end
 
