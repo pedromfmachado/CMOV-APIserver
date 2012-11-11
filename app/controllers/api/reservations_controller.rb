@@ -52,33 +52,41 @@ class Api::ReservationsController < Api::BaseController
 
     reservation = Reservation.new(params[:reservation])
     
-    if reservation.save
+	# still needs a little more testing
+    # to allow a random 25% failures
+    fail = [0,1,2,3]
+    if fail.sample == 1 or fail.sample == 2 or fail.sample == 3
+	
+		if reservation.save
 
-      departureStation_id = params[:reservation][:departureStation_id].to_i
-      arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
-      time = Time.parse(params[:time])
-      date = Date.parse(params[:reservation][:date])
+		  departureStation_id = params[:reservation][:departureStation_id].to_i
+		  arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
+		  time = Time.parse(params[:time])
+		  date = Date.parse(params[:reservation][:date])
 
-      result = Array.new
+		  result = Array.new
 
-      makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
-  
-      result << departureStation_id.to_i
+		  makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
+	  
+		  result << departureStation_id.to_i
 
-      result.reverse!
+		  result.reverse!
 
-      for i in 0..(result.count-2)
+		  for i in 0..(result.count-2)
 
-        trip = getNextTrip(result[i], result[i+1], time)
+			trip = getNextTrip(result[i], result[i+1], time)
 
-        rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
-                                  :arrivalStation_id => reservation.arrivalStation_id, :date => reservation.date)
-        
-        rt.save
+			rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
+									  :arrivalStation_id => reservation.arrivalStation_id, :date => reservation.date)
+			
+			rt.save
 
-      end
+		  end
 
-      render :json =>  { :success => true }
+		  render :json =>  { :success => true }
+		else
+		  render :json => { :success => false }
+		end
     else
       render :json => { :success => false }
     end
@@ -185,49 +193,41 @@ class Api::ReservationsController < Api::BaseController
   private
   def makeReservations(departureStation_id, arrivalStation_id, visited, result)
 
-    # still needs a little more testing
-    # to allow a random 25% failures
-    fail = [0,1,2,3]
-    if fail.sample == 0
-      puts 'Your purchase was rejected by your credit card provider.'
-    else
-		  departure = LineStation.where(:station_id => departureStation_id)
+	  departure = LineStation.where(:station_id => departureStation_id)
 
-		  departure.each do |ls|
+	  departure.each do |ls|
 
-		    arrival = LineStation.where(:station_id => arrivalStation_id, :line_id => ls.line_id)
+		arrival = LineStation.where(:station_id => arrivalStation_id, :line_id => ls.line_id)
 
-		    if !arrival.blank?
+		if !arrival.blank?
 
-		      result << arrivalStation_id
+		  result << arrivalStation_id
 
-		    else
+		else
 
-		      intersections = getIntersections(ls.line_id)
-		      
-		      intersections.each do |i|
-		        
-		        if !visited.include? i
+		  intersections = getIntersections(ls.line_id)
+		  
+		  intersections.each do |i|
+			
+			if !visited.include? i
 
-		          visited << i
+			  visited << i
 
-		          makeReservations(i, arrivalStation_id, visited, result)
-		          
-		          if !result.blank?
+			  makeReservations(i, arrivalStation_id, visited, result)
+			  
+			  if !result.blank?
 
-		            result << i
+				result << i
 
-		          end
+			  end
 
-		        end
-
-		      end
-
-		    end
+			end
 
 		  end
 
-    end
+		end
+
+	  end
 
   end
 
