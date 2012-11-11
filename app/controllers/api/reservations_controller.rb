@@ -1,7 +1,7 @@
 class Api::ReservationsController < Api::BaseController
 
-  # GET /trips
-  # GET /trips.json
+  # GET /reservations
+  # GET /reservations.json
   def index
 
     reservations = Reservation.all    
@@ -10,13 +10,22 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
-  # GET /trips/1
-  # GET /trips/1.json
+  # GET /reservations/1
+  # GET /reservations/1.json
   def show
 
     reservation = Reservation.find(params[:id])
 
     render :json => reservation
+
+  end
+
+  def cancel
+
+    @reservation = Reservation.find(params[:id])
+    @reservation.update_attributes(:canceled => true)
+
+    render :json => { :success => true }
 
   end
 
@@ -181,13 +190,6 @@ class Api::ReservationsController < Api::BaseController
     end
 
   end
-
-  private
-  def cancel()
-
-    :reservation.canceled => true
-
-  end  
 
   private
   def getStationTime(trip, station_id)
