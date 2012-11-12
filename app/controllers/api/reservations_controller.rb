@@ -252,41 +252,41 @@ class Api::ReservationsController < Api::BaseController
   private
   def makeReservations(departureStation_id, arrivalStation_id, visited, result)
 
-	  departure = LineStation.where(:station_id => departureStation_id)
+  	departure = LineStation.where(:station_id => departureStation_id)
 
-	  departure.each do |ls|
+  	departure.each do |ls|
 
-		arrival = LineStation.where(:station_id => arrivalStation_id, :line_id => ls.line_id)
+			arrival = LineStation.where(:station_id => arrivalStation_id, :line_id => ls.line_id)
 
-		if !arrival.blank?
+			if !arrival.blank?
 
-		  result << arrivalStation_id
+	  		result << arrivalStation_id
 
-		else
+			else
 
-		  intersections = getIntersections(ls.line_id)
+	  		intersections = getIntersections(ls.line_id)
+	  
+	  		intersections.each do |i|
+		
+					if !visited.include? i
+
+		  			visited << i
+
+		  			makeReservations(i, arrivalStation_id, visited, result)
 		  
-		  intersections.each do |i|
-			
-			if !visited.include? i
+						if !result.blank?
 
-			  visited << i
+							result << i
 
-			  makeReservations(i, arrivalStation_id, visited, result)
-			  
-			  if !result.blank?
+		  			end
 
-				result << i
+					end
 
-			  end
+	  	end
 
 			end
 
-		  end
-
-		end
-
-	  end
+  	end
 
   end
 
