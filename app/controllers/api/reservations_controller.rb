@@ -324,5 +324,22 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
+  def get_trip_lotation(trip, date)
+
+    count = 0
+
+    reservations = Reservation.where(:date => date)
+    train = Train.find(trip.train_id)
+
+    reservations.each do |r|
+
+      count += ReservationTrip.where(:reservation_id => r.id, :trip_id => trip.id).count
+
+    end
+
+    return train.lotation - count 
+
+  end
+
 
 end
