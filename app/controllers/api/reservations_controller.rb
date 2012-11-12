@@ -128,7 +128,14 @@ class Api::ReservationsController < Api::BaseController
 			        trip = getNextTrip(result[i], result[i+1], time, date)
 
               if trip == nil
-                render :json => { :success => false, :errors => ["Trip" => "Trip is not valid"]}
+                render :json => { :success => false, :errors => ["Trip" => " is not valid"]}
+                return
+              end
+
+              lotation = get_trip_lotation(trip, result[i], date)
+
+              if lotation <= 0
+                render :json => { :success => false, :errors => ["Trip" => "is full"]}
                 return
               end
 
@@ -178,7 +185,7 @@ class Api::ReservationsController < Api::BaseController
         return
       end
 
-      lotation = get_trip_lotation(trip,date)
+      lotation = get_trip_lotation(trip, result[i],date)
       
       # if there the trip is full
       if lotation <= 0
@@ -230,7 +237,7 @@ class Api::ReservationsController < Api::BaseController
       # if stations are in the correct order
       if (((tripDepartureOrder <= tripArrivalOrder && departureOrder <= arrivalOrder)||
            (tripDepartureOrder >= tripArrivalOrder && departureOrder >= arrivalOrder)) &&
-           get_trip_lotation(trip,date))
+           get_trip_lotation(trip,departureOrder,date))
 
         return trip
 
@@ -340,7 +347,7 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
-  def get_trip_lotation(trip, date)
+  def get_trip_lotation(trip, departureStation_id, date)
 
     count = 0
 
@@ -349,7 +356,22 @@ class Api::ReservationsController < Api::BaseController
 
     reservations.each do |r|
 
-      count += ReservationTrip.where(:reservation_id => r.id, :trip_id => trip.id).count
+      reservationTrips = ReservationTrip.where(:reservation_id => r.id, :trip_id => trip.id)
+
+      reservationTrips.each do |rt|
+
+        departureTripOrder = LineStation.where(:line_id => trip.line_id, :station_id => departureStation_id).first.order
+
+        departureOrder = LineStation.where(:line_id => trip.line_id, :station_id => rt.departureStation_id).first.order
+        arrivalOrder = LineStation.where(:line_id => trip.line_id, :station_id => rt.arrivalStation_id).first.order
+
+        if (departureOrder <= departureTripOrder && arrivalOrder > departureTripOrder)
+
+          count += 1
+
+        end
+
+      end
 
     end
 
