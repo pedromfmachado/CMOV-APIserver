@@ -62,10 +62,25 @@ class Api::ReservationsController < Api::BaseController
 
   def cancel
 
-    @reservation = Reservation.find(params[:id])
-    @reservation.update_attributes(:canceled => true)
+    user = User.find_by_authentication_token(params[:token])
+    reservation = Reservation.find(params[:id])
 
-    render :json => { :success => true }
+    if user.id != reservation.user_id
+
+      render :json => { :success => false, :errors => ["User" => "does not correspond to reservation"] }
+      return
+
+    end
+
+    if reservation.update_attributes(:canceled => true)
+
+      render :json => { :success => true }
+
+    else
+
+      render :json => { :success => false }      
+      
+    end
 
   end
 
@@ -143,6 +158,8 @@ class Api::ReservationsController < Api::BaseController
     time = Time.parse(params[:time])
     date = Date.parse(params[:date])
 
+    time = time.change(:month => 1, :day => 1, :year => 2000)
+
     result = Array.new
     trips_array = makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
 
@@ -184,6 +201,8 @@ class Api::ReservationsController < Api::BaseController
     departureOrder = LineStation.where(:station_id => departureStation_id, :line_id => line_id).first.order
     arrivalOrder = LineStation.where(:station_id => arrivalStation_id, :line_id => line_id).first.order
 
+    puts 'time'
+    puts actual_time
     trips = Trip.where('line_id = ? AND "beginTime" >= ?', line_id, actual_time).order('"beginTime" ASC')
 
     if trips.empty?

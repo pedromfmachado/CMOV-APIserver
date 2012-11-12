@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20121111014509) do
   end
 
   create_table "trips", :force => true do |t|
-    t.datetime "beginTime"
+    t.time     "beginTime"
     t.integer  "tripType_id"
     t.integer  "train_id"
     t.integer  "line_id"
