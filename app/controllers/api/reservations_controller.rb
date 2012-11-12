@@ -171,7 +171,7 @@ class Api::ReservationsController < Api::BaseController
       trip = getNextTrip(result[i], result[i+1], time)
 
       if trip == nil
-        render :json => { :success => false, :errors => ["Trip" => "is not valid"] }
+        render :json => []
         return
       end
 
