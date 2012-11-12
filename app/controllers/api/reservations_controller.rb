@@ -60,6 +60,34 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
+  #confirm reservation
+  def confirm
+
+    user = User.find_by_authentication_token(params[:token])
+    
+    if user.role != 'inspector'
+
+      render :json => { :success => false, :errors => ["User" => "has to be an inspector"] }
+      return
+
+    end
+
+    reservation = Reservation.find_by_uuid(params[:uuid])
+
+    if reservation == nil
+      render :json => { :success => false, :errors => ["Reservation" => "does not exist"] }
+    end
+
+    rTrips = ReservationTrip.where(:reservation_id => reservation.id, :trip_id => params[:trip_id])
+    
+    if rTrips.count > 0
+      render :json => { :success => true, :trip => reservation }
+    else
+      render :json => { :success => false, :errors => ["Trip" => "is not part of indicated reservation"] }    
+    end
+
+  end
+
 
   # cancel reservation
   def cancel
