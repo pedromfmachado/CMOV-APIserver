@@ -175,7 +175,7 @@ class Api::ReservationsController < Api::BaseController
         return
       end
 
-      #time = getStationTime(trip, result[i])
+      time = getStationTime(trip, result[i])
 
       departure = Station.find(result[i]).name
       arrival = Station.find(result[i+1]).name
