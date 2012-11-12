@@ -109,7 +109,7 @@ class Api::ReservationsController < Api::BaseController
 
 		        departureStation_id = params[:reservation][:departureStation_id].to_i
 		        arrivalStation_id = params[:reservation][:arrivalStation_id].to_i
-		        time = Time.parse(params[:time])
+		        time = Time.parse(params[:time]).change(:month => 1, :day => 1, :year => 2000)
 		        date = Date.parse(params[:reservation][:date])
 
 		        result = Array.new
@@ -155,10 +155,8 @@ class Api::ReservationsController < Api::BaseController
 
     departureStation_id = params[:departureStation_id].to_i
     arrivalStation_id = params[:arrivalStation_id].to_i
-    time = Time.parse(params[:time])
+    time = Time.parse(params[:time]).change(:month => 1, :day => 1, :year => 2000)
     date = Date.parse(params[:date])
-
-    time = time.change(:month => 1, :day => 1, :year => 2000)
 
     result = Array.new
     trips_array = makeReservations( departureStation_id, arrivalStation_id, Array.new, result)
