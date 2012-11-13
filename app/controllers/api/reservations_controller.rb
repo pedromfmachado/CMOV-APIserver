@@ -22,8 +22,8 @@ class Api::ReservationsController < Api::BaseController
 
         departureStation = Station.find(rt.departureStation_id).name
         arrivalStation = Station.find(rt.arrivalStation_id).name
-        reservationTrips << { :reservation_trip => rt, :departure => departureStation,
-                              :arrival => arrivalStation, :time => rt.time.strftime('%H:%M') }            
+        reservationTrips << { :reservation_trip => rt, :departure => departureStation_id,
+                              :arrival => arrivalStation_id, :time => rt.time.strftime('%H:%M') }            
 
         end
 
