@@ -3,8 +3,17 @@ class Api::LinesController < Api::BaseController
   # GET /lines
   # GET /lines.json
   def index
-    @lines = Line.all
-    render :json => @lines
+
+    lines = Array.new
+    Line.all.each do |l|
+
+      lineStations = LineStation.where(:line_id => l.id)
+
+      lines << { :line => l, :lineStations => lineStations }
+
+    end
+
+    render :json => lines
   end
 
   # GET /lines/1
