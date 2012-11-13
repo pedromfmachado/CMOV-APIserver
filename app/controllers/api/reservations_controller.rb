@@ -131,10 +131,9 @@ class Api::ReservationsController < Api::BaseController
    
       reservation = Reservation.new(params[:reservation])
       
-	    # still needs a little more testing
-      # to allow a random 25% failures
-      fail = [0,1,2,3]
-      if fail.sample == 1 or fail.sample == 2 or fail.sample == 3
+      # to allow a random 10% failures
+      fail = (0..9).to_a
+      if fail.sample != 9
 
 		      if reservation.save
 
