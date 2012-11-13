@@ -17,7 +17,7 @@ class Api::ReservationsController < Api::BaseController
       result = Array.new
       reservations.each do |r|
 
-        reservationTr+ips = Array.new
+        reservationTrips = Array.new
         ReservationTrip.where(:reservation_id => r.id).each do |rt|
 
           departureStation = Station.find(r.departureStation_id).name
