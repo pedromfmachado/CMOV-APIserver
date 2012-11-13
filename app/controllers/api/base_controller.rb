@@ -10,9 +10,7 @@ class Api::BaseController < ApplicationController
 
       rTrips = ReservationTrip.where(:reservation_id => r.id).order('time ASC')
 
-      puts "rtrips size = #{rTrips.length}"
-
-      if rTrips.length == 0
+      if rTrips.length != 0
 
         time = rTrips.first.time
         if 1.day.from_now >= time && r.uuid == nil
