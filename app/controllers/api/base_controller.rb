@@ -15,10 +15,7 @@ class Api::BaseController < ApplicationController
       end
 
       time = rTrips.first.time
-      date = r.date
-
-      date.change(:hour => time.hour, :min => time.min)
-      if 1.day.from_now > date && r.uuid = nil
+      if 1.day.from_now > time && r.uuid = nil
         
         uuid = UUIDTools::UUID.timestamp_create.to_s
         r.update_attributes(:uuid => uuid)

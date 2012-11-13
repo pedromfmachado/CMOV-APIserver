@@ -20,10 +20,10 @@ class Api::ReservationsController < Api::BaseController
         reservationTrips = Array.new
         ReservationTrip.where(:reservation_id => r.id).each do |rt|
 
-          departureStation = Station.find(r.departureStation_id).name
-          arrivalStation = Station.find(r.arrivalStation_id).name
-          reservationTrips << { :reservation_trip => rt, :departure => departureStation,
-                                :arrival => arrivalStation, :time => rt.time.strftime('%H:%M') }            
+        departureStation = Station.find(r.departureStation_id).name
+        arrivalStation = Station.find(r.arrivalStation_id).name
+        reservationTrips << { :reservation_trip => rt, :departure => departureStation,
+                              :arrival => arrivalStation, :time => rt.time.strftime('%H:%M') }            
 
         end
 
