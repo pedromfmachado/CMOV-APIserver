@@ -13,8 +13,9 @@ group :production do
 	gem 'pg'
 end
 
+gem 'uuidtools'
 gem 'devise'
-gem "cancan"
+gem 'cancan'
 gem 'execjs'
 gem 'therubyracer'
 
