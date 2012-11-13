@@ -54,8 +54,10 @@ train3 = Train.create({"maxCapacity"=>"20", "velocity"=>60.0})
 train4 = Train.create({"maxCapacity"=>"2", "velocity"=>60.0})
 
 # Users
+User.create({"name"=>"admin2","password"=>"123456","address"=>"rua de camoes n 2","role"=>"admin","email"=>"admin2@server.com"})
+User.create({"name"=>"admin","password"=>"123456","address"=>"rua de camoes n 2","role"=>"admin","email"=>"admin@server.com"})
 User.create({"name"=>"admin","address"=>"rua de camoes n 2","role"=>"admin","email"=>"admin@server.com"})
-User.create({"name"=>"joao","address"=>"rua de camoes","role"=>"inspector","email"=>"joao@h.com"})
+User.create({"name"=>"joao","password"=>"123456","address"=>"rua de camoes","role"=>"inspector","email"=>"inspector@server.com"})
 customer1 = User.create({"name"=>"jaime","address"=>"rua das flores","role"=>"customer","cctype"=>"visa","ccnumber"=>"12345","ccvalidity"=>"2014-10-10","email"=>"jaime@h.com"})
 customer2 = User.create({"name"=>"filipe","address"=>"rua de amorim","role"=>"customer","cctype"=>"americanexpress","ccnumber"=>"11111","ccvalidity"=>"2013-10-10","email"=>"filipe@h.com"})
 customer3 = User.create({"name"=>"fernando","address"=>"rua monteiro","role"=>"customer","cctype"=>"visa","ccnumber"=>"12315","ccvalidity"=>"2015-10-10","email"=>"fernando@h.com"})
