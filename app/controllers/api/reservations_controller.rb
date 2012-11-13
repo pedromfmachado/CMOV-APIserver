@@ -387,12 +387,16 @@ class Api::ReservationsController < Api::BaseController
 
       reservationTrips.each do |rt|
 
-        departureTripOrder = LineStation.where(:line_id => trip.line_id, :station_id => departureStation_id).first.order
+        departureTrip = LineStation.where(:line_id => trip.line_id, :station_id => departureStation_id).first
 
-        departureOrder = LineStation.where(:line_id => trip.line_id, :station_id => rt.departureStation_id).first.order
-        arrivalOrder = LineStation.where(:line_id => trip.line_id, :station_id => rt.arrivalStation_id).first.order
+        departure = LineStation.where(:line_id => trip.line_id, :station_id => rt.departureStation_id).first
+        arrival = LineStation.where(:line_id => trip.line_id, :station_id => rt.arrivalStation_id).first
 
-        if (departureOrder <= departureTripOrder && arrivalOrder > departureTripOrder)
+        if (departureTrip == nil || departure == nil || arrival == nil)
+          next
+        end
+
+        if (departure.order <= departureTrip.order && arrival.order > departureTrip.order)
 
           count += 1
 
