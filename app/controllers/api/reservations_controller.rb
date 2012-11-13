@@ -168,8 +168,8 @@ class Api::ReservationsController < Api::BaseController
 
               time = getStationTime(trip, result[i])
 
-			        rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => reservation.departureStation_id,
-									          :arrivalStation_id => reservation.arrivalStation_id, :time => time.strftime('%H:%M'))
+			        rt = ReservationTrip.new(:trip_id => trip.id, :reservation_id => reservation.id, :departureStation_id => result[i],
+									          :arrivalStation_id => result[i+1], :time => time.strftime('%H:%M'))
 			
 			        rt.save
 
@@ -402,7 +402,7 @@ class Api::ReservationsController < Api::BaseController
 
     end
 
-    return train.maxCapacity - count 
+    return (train.maxCapacity - count)
 
   end
 
