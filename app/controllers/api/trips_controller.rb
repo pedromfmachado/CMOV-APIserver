@@ -9,9 +9,8 @@ class Api::TripsController < Api::BaseController
     
 
     Trip.all.each do |trip|
-      trips << { :id => trip.id, :time => trip.beginTime.strftime('%H:%M'),
-                 :departure_station => Station.find(trip.departureStation_id).name,
-                 :arrival_station => Station.find(trip.arrivalStation_id).name }
+
+      trips << { :trip => trip, :time => trip.beginTime.strftime('%H:%M') }
     end
     
     render :json => trips
