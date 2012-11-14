@@ -14,12 +14,12 @@ class Api::ReservationsController < Api::BaseController
 
     elsif user.role == 'inspector'
 
-      if  params[:date] = nil
+      if  params[:date] == nil
         render :json => { :success => false, :errors => ["Date" => "was not found"] }
         return
       end
       puts "Role: #{user.role}"
-      reservations = Reservation.where(:date => params[:date], :canceled => false)
+      reservations = Reservation.where(:date => Date.parse(params[:date]), :canceled => false)
 
       result = Array.new
       reservations.each do |r|
