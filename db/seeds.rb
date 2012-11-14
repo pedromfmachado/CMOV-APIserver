@@ -53,15 +53,6 @@ train2 = Train.create({"maxCapacity"=>"5", "velocity"=>60.0})
 train3 = Train.create({"maxCapacity"=>"20", "velocity"=>60.0})
 train4 = Train.create({"maxCapacity"=>"2", "velocity"=>60.0})
 
-# Users
-User.create({"name"=>"admin2","password"=>"123456","address"=>"rua de camoes n 2","role"=>"admin","email"=>"admin2@server.com"})
-User.create({"name"=>"admin","password"=>"123456","address"=>"rua de camoes n 2","role"=>"admin","email"=>"admin@server.com"})
-User.create({"name"=>"admin","address"=>"rua de camoes n 2","role"=>"admin","email"=>"admin@server.com"})
-User.create({"name"=>"joao","password"=>"123456","address"=>"rua de camoes","role"=>"inspector","email"=>"inspector@server.com"})
-customer1 = User.create({"name"=>"jaime","address"=>"rua das flores","role"=>"customer","cctype"=>"visa","ccnumber"=>"12345","ccvalidity"=>"2014-10-10","email"=>"jaime@h.com"})
-customer2 = User.create({"name"=>"filipe","address"=>"rua de amorim","role"=>"customer","cctype"=>"americanexpress","ccnumber"=>"11111","ccvalidity"=>"2013-10-10","email"=>"filipe@h.com"})
-customer3 = User.create({"name"=>"fernando","address"=>"rua monteiro","role"=>"customer","cctype"=>"visa","ccnumber"=>"12315","ccvalidity"=>"2015-10-10","email"=>"fernando@h.com"})
-
 # TripType
 local = TripType.create({"name"=>"local", "price"=>2.5})
 regional = TripType.create({"name"=>"regional", "price"=>5.0})
@@ -74,7 +65,3 @@ trip2_12 = Trip.create({"beginTime"=>"12:00", "tripType_id"=>regional.id, "train
 trip2_15 = Trip.create({"beginTime"=>"15:00", "tripType_id"=>regional.id, "train_id"=>train3.id, "line_id"=>lines.second.id, "departureStation_id"=>povoadevarzim.id, "arrivalStation_id"=>campanha.id })
 trip2_18 = Trip.create({"beginTime"=>"18:00", "tripType_id"=>regional.id, "train_id"=>train3.id, "line_id"=>lines.second.id, "departureStation_id"=>povoadevarzim.id, "arrivalStation_id"=>campanha.id })
 
-# Reservations
-Reservation.create({"user_id"=>customer1.id,"departureStation_id"=>sjoao.id,"arrivalStation_id"=>ipo.id})
-Reservation.create({"user_id"=>customer2.id,"departureStation_id"=>sjoao.id,"arrivalStation_id"=>ipo.id})
-Reservation.create({"user_id"=>customer3.id,"departureStation_id"=>ipo.id,"arrivalStation_id"=>salgueiros.id})

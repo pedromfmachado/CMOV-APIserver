@@ -10,12 +10,12 @@ class Api::ReservationsController < Api::BaseController
 
     if user == nil
 
-      render :json => []
+      render :json => { :success => false, :errors => ["User" => "was not found"] }
 
     elsif user.role == 'inspector'
 
       if  params[:date] = nil
-        render :json => []
+        render :json => { :success => false, :errors => ["Date" => "was not found"] }
         return
       end
       puts "Role: #{user.role}"
@@ -41,7 +41,7 @@ class Api::ReservationsController < Api::BaseController
 
       end
 
-      render :json => result
+      render :json => { :reservations => result }
 
     else
 
