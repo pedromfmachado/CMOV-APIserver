@@ -6,6 +6,8 @@ class Api::ReservationsController < Api::BaseController
 
     user = User.find_by_authentication_token(params[:token])
 
+    
+
     if user == nil
 
       render :json => []
@@ -16,7 +18,7 @@ class Api::ReservationsController < Api::BaseController
         render :json => []
         return
       end
-
+      puts "Role: #{user.role}"
       reservations = Reservation.where(:date => params[:date], :canceled => false)
 
       result = Array.new
