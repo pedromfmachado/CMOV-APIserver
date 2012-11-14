@@ -10,6 +10,37 @@ class Api::ReservationsController < Api::BaseController
 
       render :json => []
 
+    elsif user.role == 'inspector'
+
+      if  params[:date] = nil
+        render :json => []
+        return
+      end
+
+      reservations = Reservation.where(:date => params[:date], :canceled => false)
+
+      result = Array.new
+      reservations.each do |r|
+
+        reservationTrips = Array.new
+        ReservationTrip.where(:reservation_id => r.id).each do |rt|
+
+        departureStation = Station.find(r.departureStation_id).name
+        arrivalStation = Station.find(r.arrivalStation_id).name
+        reservationTrips << { :reservation_trip => rt, :departure => departureStation,
+                              :arrival => arrivalStation, :time => rt.time.strftime('%H:%M') }            
+
+        end
+
+        departureStation = Station.find(r.departureStation_id).name
+        arrivalStation = Station.find(r.arrivalStation_id).name
+
+        result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation, :reservation_trips => reservationTrips }
+
+      end
+
+      render :json => result
+
     else
 
       reservations = Reservation.where(:user_id => user.id, :canceled => false)
