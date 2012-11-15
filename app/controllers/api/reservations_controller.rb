@@ -63,7 +63,8 @@ class Api::ReservationsController < Api::BaseController
         departureStation = Station.find(r.departureStation_id).name
         arrivalStation = Station.find(r.arrivalStation_id).name
 
-        result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation, :reservation_trips => reservationTrips }
+        result << { :reservation => r, :price => get_reservation_price(r), :departure => departureStation,
+                    :arrival => arrivalStation, :reservation_trips => reservationTrips }
 
       end
 

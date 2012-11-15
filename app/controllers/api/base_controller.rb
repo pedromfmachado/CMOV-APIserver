@@ -16,7 +16,7 @@ class Api::BaseController < ApplicationController
         time = rTrips.first.time.change(:year => date.year, :month => date.month, :day => date.day)
         puts "time #{1.day.from_now >= time} trip => #{r.id}"
         
-        if (1.day.from_now >= time)
+        if (1.day.from_now >= time  )
 
           if(r.paid)
           
