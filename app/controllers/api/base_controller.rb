@@ -30,7 +30,7 @@ class Api::BaseController < ApplicationController
         end
       
       end
-
+add
     end
 
   end
