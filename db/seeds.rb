@@ -54,8 +54,8 @@ train3 = Train.create({"maxCapacity"=>"20", "velocity"=>60.0})
 train4 = Train.create({"maxCapacity"=>"2", "velocity"=>60.0})
 
 # TripType
-local = TripType.create({"name"=>"local", "price"=>2.5})
-regional = TripType.create({"name"=>"regional", "price"=>5.0})
+local = TripType.create({"name"=>"local", "price"=>0.10})
+regional = TripType.create({"name"=>"regional", "price"=>0.15})
 
 # Trips
 trip1_12 = Trip.create({"beginTime"=>"12:00", "tripType_id"=>local.id, "train_id"=>train4.id, "line_id"=>lines.first.id, "departureStation_id"=>sjoao.id, "arrivalStation_id"=>joaodeus.id })

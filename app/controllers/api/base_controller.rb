@@ -12,9 +12,11 @@ class Api::BaseController < ApplicationController
 
       if rTrips.length != 0
 
-        time = rTrips.first.time
-        date = r.date.change(:hour => time.hour, :min => time.min)
-        if (1.day.from_now >= date && r.uuid == nil)
+        date = r.date        
+        time = rTrips.first.time.change(:year => date.year, :month => date.month, :day => date.day)
+        puts "time #{1.day.from_now >= time} trip => #{r.id}"
+        
+        if (1.day.from_now >= time)
 
           if(r.paid)
           
@@ -30,7 +32,7 @@ class Api::BaseController < ApplicationController
         end
       
       end
-add
+
     end
 
   end

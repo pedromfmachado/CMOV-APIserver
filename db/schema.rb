@@ -47,15 +47,15 @@ ActiveRecord::Schema.define(:version => 20121115191657) do
   add_index "reservation_trips", ["trip_id"], :name => "index_reservation_trips_on_trip_id"
 
   create_table "reservations", :force => true do |t|
-    t.string    "uuid"
-    t.integer   "user_id"
-    t.integer   "arrivalStation_id"
-    t.integer   "departureStation_id"
-    t.boolean   "canceled",            :default => false, :null => false
-    t.timestamp "created_at",                             :null => false
-    t.timestamp "updated_at",                             :null => false
-    t.date      "date"
-    t.boolean   "paid"
+    t.string   "uuid"
+    t.integer  "user_id"
+    t.integer  "arrivalStation_id"
+    t.integer  "departureStation_id"
+    t.boolean  "canceled",            :default => false, :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.date     "date"
+    t.boolean  "paid",                :default => false, :null => false
   end
 
   add_index "reservations", ["arrivalStation_id"], :name => "index_reservations_on_arrivalStation_id"

@@ -18,7 +18,7 @@ class Api::ReservationsController < Api::BaseController
         render :json => { :success => false, :errors => ["Date" => "was not found"] }
         return
       end
-      puts "Role: #{user.role}"
+
       reservations = Reservation.where(:date => Date.parse(params[:date]), :canceled => false)
 
       result = Array.new
@@ -37,7 +37,8 @@ class Api::ReservationsController < Api::BaseController
         departureStation = Station.find(r.departureStation_id).name
         arrivalStation = Station.find(r.arrivalStation_id).name
 
-        result << { :reservation => r, :departure => departureStation, :arrival => arrivalStation, :reservation_trips => reservationTrips }
+        result << { :reservation => r, :price => get_reservation_price(r), :departure => departureStation,
+                    :arrival => arrivalStation, :reservation_trips => reservationTrips }
 
       end
 
@@ -444,6 +445,32 @@ class Api::ReservationsController < Api::BaseController
     end
 
     return (train.maxCapacity - count)
+
+  end
+
+  private
+  def get_reservation_price(r)
+
+    price = 0.0
+
+    rTrips = ReservationTrip.where(:reservation_id => r.id)
+
+    rTrips.each do |rt|
+
+      trip = Trip.find(rt.trip_id)
+      type = TripType.find(trip.tripType_id)
+      departure = LineStation.where(:station_id => rt.departureStation_id, :line_id => trip.line_id).first
+      arrival = LineStation.where(:station_id => rt.arrivalStation_id, :line_id => trip.line_id).first
+
+      if departure != nil && arrival != nil && type != nil
+
+        price +=  (arrival.order - departure.order).abs * type.price
+
+      end
+
+    end
+
+    return price
 
   end
 
