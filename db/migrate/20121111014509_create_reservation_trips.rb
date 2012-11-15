@@ -1,17 +1,10 @@
 class CreateReservationTrips < ActiveRecord::Migration
-  def change
-    create_table :reservation_trips do |t|
-      t.references :reservation
-      t.references :trip
-      t.references :departureStation
-      t.references :arrivalStation
-      t.datetime :time
-
-      t.timestamps
+  def self.up
+    change_table :reservations do |t|
+      t.boolean :paid, :null => false, :default => false
     end
-    add_index :reservation_trips, :reservation_id
-    add_index :reservation_trips, :trip_id
-    add_index :reservation_trips, :departureStation_id
-    add_index :reservation_trips, :arrivalStation_id
+  end
+  def self.down
+    t.date :paid
   end
 end

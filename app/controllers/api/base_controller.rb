@@ -13,10 +13,19 @@ class Api::BaseController < ApplicationController
       if rTrips.length != 0
 
         time = rTrips.first.time
-        if 1.day.from_now >= time && r.uuid == nil
+        date = r.date.change(:hour => time.hour, :min => time.min)
+        if (1.day.from_now >= date && r.uuid == nil)
+
+          if(r.paid)
           
-          uuid = UUIDTools::UUID.timestamp_create.to_s
-          r.update_attributes(:uuid => uuid)
+            uuid = UUIDTools::UUID.timestamp_create.to_s
+            r.update_attributes(:uuid => uuid)
+
+          else
+
+            r.update_attributes(:canceled => true)
+
+          end         
 
         end
       

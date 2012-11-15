@@ -25,6 +25,7 @@ CMOVApiserver::Application.routes.draw do
     get 'reservations/get_trips'
     post 'reservations/cancel/:id' => 'reservations#cancel'
     post 'reservations/confirm' => 'reservations#confirm'
+    post 'reservations/pay' => 'reservations#confirm'
 
   end  
 

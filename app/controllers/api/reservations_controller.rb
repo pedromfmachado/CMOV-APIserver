@@ -72,23 +72,8 @@ class Api::ReservationsController < Api::BaseController
 
   end
 
-  # GET /reservations/1
-  # GET /reservations/1.json
-  def show
-
-    user = User.find_by_authentication_token(params[:token])
-    reservation = Reservation.find(params[:id])
-
-    departureStation = Station.find(reservation.departureStation_id).name
-    arrivalStation = Station.find(reservation.arrivalStation_id).name
-
-    if user.id == reservation.user_id
-      render :json => { :reservation => reservation, :departure => departureStation, :arrival => arrivalStation }
-    else
-      render :json => { :success => false }
-    end
-
-    
+  #pay reservation
+  def pay
 
   end
 
