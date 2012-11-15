@@ -422,6 +422,10 @@ class Api::ReservationsController < Api::BaseController
 
     reservations.each do |r|
 
+      if r.canceled
+        next
+      end
+
       reservationTrips = ReservationTrip.where(:reservation_id => r.id, :trip_id => trip.id)
 
       reservationTrips.each do |rt|
