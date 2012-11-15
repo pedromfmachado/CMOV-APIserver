@@ -75,6 +75,26 @@ class Api::ReservationsController < Api::BaseController
   #pay reservation
   def pay
 
+    user = User.find_by_authentication_token(params[:token])
+    reservation = Reservation.find(params[:id])
+
+    if user.id != reservation.user_id
+
+      render :json => { :success => false, :errors => ["User" => "does not correspond to reservation"] }
+      return
+
+    end
+
+    if reservation.update_attributes(:paid => true)
+
+      render :json => { :success => true }
+
+    else
+
+      render :json => { :success => false }      
+      
+    end
+
   end
 
   #confirm reservation
