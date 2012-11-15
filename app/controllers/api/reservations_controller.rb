@@ -66,7 +66,7 @@ class Api::ReservationsController < Api::BaseController
 
       end
 
-      render :json => result
+      render :json => { :succes => true , :reservations => result }
     
     end
 
