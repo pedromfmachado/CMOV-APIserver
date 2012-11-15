@@ -241,10 +241,18 @@ class Api::ReservationsController < Api::BaseController
     result <<  departureStation_id.to_i
     result.reverse!
 
+    price = 0.0
+
     trips = Array.new
     for i in 0..(result.count-2)
 
       trip = getNextTrip(result[i], result[i+1], time, date)
+
+      departureOrder = LineStation.where(:station_id => result[i], :line_id => trip.line_id).first.order
+      arrivalOrder = LineStation.where(:station_id => result[i+1], :line_id => trip.line_id).first.order
+      typePrice = TripType.find(trip.tripType_id).price
+
+      price += (arrivalOrder - departureOrder) * typePrice
 
       if trip == nil
         render :json => { :success => false, :error => ["Trip" => "There are no trips available"]}
@@ -269,7 +277,7 @@ class Api::ReservationsController < Api::BaseController
 
     end
 
-    render :json => { :success => true, :trips => trips }
+    render :json => { :success => true, :trips => trips, :price => price }
 
   end
 
