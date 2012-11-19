@@ -18,7 +18,7 @@ class Api::BaseController < ApplicationController
         
         if (1.day.from_now >= time  )
 
-          if(r.paid && uuid == nil)
+          if(r.paid && r.uuid == nil)
           
             uuid = UUIDTools::UUID.timestamp_create.to_s
             r.update_attributes(:uuid => uuid)
