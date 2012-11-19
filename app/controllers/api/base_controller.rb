@@ -22,8 +22,9 @@ class Api::BaseController < ApplicationController
           
             uuid = UUIDTools::UUID.timestamp_create.to_s
             r.update_attributes(:uuid => uuid)
+	  end
 
-          else
+          if(!r.paid)
 
             r.update_attributes(:canceled => true)
 
